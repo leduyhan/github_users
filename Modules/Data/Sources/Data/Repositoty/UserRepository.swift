@@ -11,67 +11,85 @@ import Domain
 import LocalStorage
 import AppShared
 
-public final class DefaultUserRepository: UserRepository {
-    private let networkClient: NetworkClient<UserAPI>
-    private let mapper: ResponseMapper
-    private let cache: UserCache
+public protocol UserRepositoryDependencies {
+    var networkClient: NetworkClient<UserAPI> { get }
+    var mapper: ResponseMapper { get }
+    var cache: UserCache { get }
+}
 
+public struct DefaultUserRepositoryDependencies: UserRepositoryDependencies {
+    public let networkClient: NetworkClient<UserAPI>
+    public let mapper: ResponseMapper
+    public let cache: UserCache
+    
     public init(
         networkClient: NetworkClient<UserAPI> = NetworkClient(),
         mapper: ResponseMapper = DefaultResponseMapper(),
-        store: UserStore = DIContainer.shared.resolve(type: UserStore.self) ?? InMemoryUserStore())
-    {
+        store: UserStore = DIContainer.shared.resolve(type: UserStore.self) ?? InMemoryUserStore()
+    ) {
         self.networkClient = networkClient
         self.mapper = mapper
         self.cache = LocalUserLoader(store: store, currentDate: Date.init)
     }
+}
 
+public final class DefaultUserRepository: UserRepository {
+    private let dependencies: UserRepositoryDependencies
+    
+    public init(dependencies: UserRepositoryDependencies = DefaultUserRepositoryDependencies()) {
+        self.dependencies = dependencies
+    }
+    
     public func fetchUsers(since: Int, perPage: Int, forceRefresh: Bool = false) -> Observable<[User]> {
-        return Observable.create { [weak self] observer in
+        Observable.create { [weak self] observer in
             guard let self = self else {
                 observer.onCompleted()
                 return Disposables.create()
             }
             
-            // First load from cache if it's first page
-            if since == 0, !forceRefresh {
-                if let cachedUsers = try? self.cache.load(),
-                   !cachedUsers.isEmpty {
-                    observer.onNext(cachedUsers)
-                }
-            }
-
-            let networkDisposable = self.networkClient
-                .request(UserAPI.users(since: since, perPage: perPage))
-                .asObservable()
-                .map { [weak self] (dtos: [UserDTO]) -> [User] in
-                    guard let self = self else { return [] }
-                    let users = dtos.map(self.mapper.map)
-                    
-                    if since == 0 {
-                        try? self.cache.save(users)
-                    }
-                    
-                    return users
-                }
-                .share(replay: 1, scope: .whileConnected)
-                .subscribe(
-                    with: self,
-                    onNext: { _, users in
-                        observer.onNext(users)
-                        observer.onCompleted()
-                    },
-                    onError: { _, error in
-                        observer.onError(error)
-                    }
-                )
-            return networkDisposable
-        }.distinctUntilChanged()
+            self.loadCachedUsers(since: since, forceRefresh: forceRefresh, observer: observer)
+            
+            return self.fetchRemoteUsers(since: since, perPage: perPage, forceRefresh: forceRefresh)
+                .subscribe(observer)
+        }
     }
     
     public func fetchUserDetail(username: String) -> Single<UserDetail> {
-        return networkClient
+        dependencies.networkClient
             .request(UserAPI.userDetail(username: username))
-            .map(self.mapper.map)
+            .map(dependencies.mapper.map)
+    }
+    
+    private func loadCachedUsers(since: Int, forceRefresh: Bool, observer: AnyObserver<[User]>) {
+        guard since == 0, !forceRefresh else { return }
+        
+        if let cachedUsers = try? dependencies.cache.load(),
+           !cachedUsers.isEmpty {
+            observer.onNext(cachedUsers)
+        }
+    }
+    
+    private func fetchRemoteUsers(since: Int, perPage: Int, forceRefresh: Bool) -> Observable<[User]> {
+        dependencies.networkClient
+            .request(UserAPI.users(since: since, perPage: perPage))
+            .asObservable()
+            .map { [weak self] (dtos: [UserDTO]) -> [User] in
+                guard let self = self else { return [] }
+                let users = dtos.map(self.dependencies.mapper.map)
+                if since == 0 {
+                    try? self.dependencies.cache.save(users)
+                }
+                return users
+            }
+            .catch { [weak self] error -> Observable<[User]> in
+                guard let self = self,
+                      forceRefresh,
+                      let cachedUsers = try? self.dependencies.cache.load(),
+                      !cachedUsers.isEmpty else {
+                    return .error(error)
+                }
+                return .just(cachedUsers)
+            }
+            .share(replay: 1, scope: .whileConnected)
     }
 }

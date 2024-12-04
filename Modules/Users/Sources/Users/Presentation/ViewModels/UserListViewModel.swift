@@ -172,8 +172,12 @@ private extension UserListViewModel {
             loadMoreRelay.map { LoadingState.pagination },
             refreshRelay.map { LoadingState.initial }
         ])
+        .filter { [weak self] _ in
+            guard let self = self else { return false }
+            return self.loadingStateRelay.value == .none
+        }
     }
-    
+
     func createRefreshStream() -> Observable<Bool> {
         Observable.merge([
             refreshRelay.map { true },

@@ -129,24 +129,26 @@ private extension UserListViewController {
     }
     
     func bindUsers() {
-       Observable.combineLatest(
-           viewModel.outputs.items,
-           viewModel.outputs.loadingState
-       )
-       .subscribe(
-           with: self,
-           onNext: { owner, arg1 in
-               let (items, loadingState) = arg1
-               switch loadingState {
-               case .pagination:
-                   owner.updateSnapshot(with: items, isLoading: true)
-               case .initial, .none:
-                   owner.updateSnapshot(with: items, isLoading: false)
-                   owner.refreshControl.endRefreshing()
-               }
-           }
-       )
-       .disposed(by: disposeBag)
+        Observable.combineLatest(
+            viewModel.outputs.items.distinctUntilChanged(),
+            viewModel.outputs.loadingState.distinctUntilChanged()
+        )
+        .subscribe(
+            with: self,
+            onNext: { owner, arg1 in
+                let (items, loadingState) = arg1
+                switch loadingState {
+                case .pagination:
+                    owner.updateSnapshot(with: items, isLoading: true)
+                case .initial:
+                    owner.updateSnapshot(with: items, isLoading: false)
+                case .none:
+                    owner.updateSnapshot(with: items, isLoading: false)
+                    owner.refreshControl.endRefreshing()
+                }
+            }
+        )
+        .disposed(by: disposeBag)
     }
     
     func bindSelection() {
@@ -170,8 +172,12 @@ private extension UserListViewController {
     
     func bindInfiniteScrolling() {
         collectionView.rx.didScroll
+            .withLatestFrom(viewModel.outputs.loadingState) { ($0, $1) }
             .withUnretained(self)
-            .map { owner, _ -> Bool in
+            .map { owner, args -> Bool in
+                let (_, loadingState) = args
+                guard loadingState == .none else { return false }
+                
                 let offsetY = owner.collectionView.contentOffset.y
                 let contentHeight = owner.collectionView.contentSize.height
                 let frameHeight = owner.collectionView.frame.height

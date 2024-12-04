@@ -29,6 +29,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appCoordinator?.childCoordinators = [userCoordinator!]
         appCoordinator?.start()
     }
+    
+    func sceneWillResignActive(_: UIScene) {
+        let store: UserStore = DIContainer.shared.resolve(type: UserStore.self) ?? InMemoryUserStore()
+        let cache = LocalUserLoader(store: store, currentDate: Date.init)
+        try? cache.validateCache()
+    }
 }
 
 extension DIContainer {
