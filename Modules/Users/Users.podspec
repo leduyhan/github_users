@@ -32,9 +32,9 @@ TODO: Add long description of the pod here.
   s.source_files = 'Sources/Users/**/*'
 
   s.resource_bundles = {
-      'Users' => ['Sources/Users/**/**/*.{xcassets,strings,json}']
+    'Users' => ['Sources/Users/**/*']
   }
-
+  
   s.dependency 'Domain'
   s.dependency 'AppShared'
   s.dependency 'RxRelay'
