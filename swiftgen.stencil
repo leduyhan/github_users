@@ -1,163 +1,17 @@
 // swiftlint:disable all
 // Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
 
-{% if tables.count > 0 %}
-{% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
 import Foundation
-import AppExtensions
+import NetworkService
 
-// swiftlint:disable superfluous_disable_command file_length implicit_return
-
-// MARK: - Strings
-
-{% macro parametersBlock types %}{% filter removeNewlines:"leading" %}
-  {% for type in types %}
-    {% if type == "String" %}
-    _ p{{forloop.counter}}: Any
-    {% else %}
-    _ p{{forloop.counter}}: {{type}}
-    {% endif %}
-    {{ ", " if not forloop.last }}
+public enum {{param.enumName|default:"L10n"}} {
+  {% for string in files[0].strings %}
+  public static let {{string.name|swiftIdentifier:"pretty"|lowerFirstWord}} = tr("Localizable", "{{string.key}}")
   {% endfor %}
-{% endfilter %}{% endmacro %}
-{% macro argumentsBlock types %}{% filter removeNewlines:"leading" %}
-  {% for type in types %}
-    {% if type == "String" %}
-    String(describing: p{{forloop.counter}})
-    {% elif type == "UnsafeRawPointer" %}
-    Int(bitPattern: p{{forloop.counter}})
-    {% else %}
-    p{{forloop.counter}}
-    {% endif %}
-    {{ ", " if not forloop.last }}
-  {% endfor %}
-{% endfilter %}{% endmacro %}
-{% macro recursiveBlock table item %}
-  {% for string in item.strings %}
-  {% if not param.noComments %}
-  {% for line in string.translation|split:"\n" %}
-  /// {{line}}
-  {% endfor %}
-  {% endif %}
-  {% if string.types %}
-  {{accessModifier}} static func {{string.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}({% call parametersBlock string.types %}) -> String {
-    return {{enumName}}.tr("{{table}}", "{{string.key}}", {% call argumentsBlock string.types %})
-  }
-  {% elif param.lookupFunction %}
-  {# custom localization function is mostly used for in-app lang selection, so we want the loc to be recomputed at each call for those (hence the computed var) #}
-  {{accessModifier}} static var {{string.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: String { return {{enumName}}.tr("{{table}}", "{{string.key}}") }
-  {% else %}
-  {{accessModifier}} static let {{string.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{enumName}}.tr("{{table}}", "{{string.key}}")
-  {% endif %}
-  {% endfor %}
-  {% for child in item.children %}
-
-  {{accessModifier}} enum {{child.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
-    {% filter indent:2 %}{% call recursiveBlock table child %}{% endfilter %}
-  }
-  {% endfor %}
-{% endmacro %}
-// swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
-// swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
-{% set enumName %}{{param.enumName|default:"L10n"}}{% endset %}
-{{accessModifier}} enum {{enumName}} {
-  {% if tables.count > 1 or param.forceFileNameEnum %}
-  {% for table in tables %}
-  {{accessModifier}} enum {{table.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
-    {% filter indent:2 %}{% call recursiveBlock table.name table.levels %}{% endfilter %}
-  }
-  {% endfor %}
-  {% else %}
-  {% call recursiveBlock tables.first.name tables.first.levels %}
-  {% endif %}
-}
-// swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
-// swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
-
-// MARK: - Implementation Details
-
-extension {{enumName}} {
-  public static func getByKey(_ key: String, _ args: CVarArg...) -> String {
-    let table = "Localizable"
-    {% if param.lookupFunction %}
-      {% if param.lookupFunction == 'LanguageService.service.dynamicLocalizedStringBundle' %}
-        let format = LanguageService.service.dynamicLocalizedString(key, table, bundle: BundleToken.bundle)
-      {% else %}
-        let format = {{ param.lookupFunction }}(key, table)
-      {% endif %}
-    {% else %}
-     let format = {{param.bundle|default:"BundleToken.bundle"}}.localizedString(forKey: key, value: nil, table: table)
-    {% endif %}
-    return String(format: format, locale: Locale.current, arguments: args)
-  }
-
-  private static func tr(_ table: String, _ key: String, _ args: CVarArg...) -> String {
-    {% if param.lookupFunction %}
-      {% if param.lookupFunction == 'LanguageService.service.dynamicLocalizedStringBundle' %}
-        let format = LanguageService.service.dynamicLocalizedString(key, table, bundle: BundleToken.bundle)
-      {% else %}
-        let format = {{ param.lookupFunction }}(key, table)
-      {% endif %}
-    {% else %}
-     let format = {{param.bundle|default:"BundleToken.bundle"}}.localizedString(forKey: key, value: nil, table: table)
-    {% endif %}
-    return String(format: format, locale: Locale.current, arguments: args)
-  }
-}
-{% if not param.bundle and not param.lookupFunction %}
-
-// swiftlint:disable convenience_type
-private final class BundleToken {
-  static let bundle: Bundle = {
-    #if SWIFT_PACKAGE
-    return Bundle.module
-    #else
-    return Bundle(for: BundleToken.self)
-    #endif
-  }()
 }
 
-{% else %}
-{% if param.bundle %}
-private final class BundleToken {
-  static var language: String = "en"
-  static var bundleSetted: Bundle?
-  static var bundle: Bundle {
-      get {
-
-          if let bundleSetted = bundleSetted, language == LanguageService.service.curLanguage {
-              return bundleSetted
-          }
-          language = LanguageService.service.curLanguage
-
-          let myBundle = Bundle(for: BundleToken.self)
-          
-          // Get the URL to the resource bundle within the bundle
-          // of the current class.
-          guard let resourceBundleURL = myBundle.url(
-            forResource: "{{param.bundle}}", withExtension: "bundle")
-          else { fatalError(" {{param.bundle}} not found!") }
-          
-          
-          if let bundle = Bundle(url: resourceBundleURL) {
-            if let pathSelected = bundle.path(forResource: LanguageService.service.curLanguage, ofType: "lproj"),
-               let bundleSelected = Bundle(path: pathSelected) {
-                bundleSetted = bundleSelected
-                return bundleSelected
-            } else if let pathDefault = bundle.path(forResource: SystemLanguage.en.desc, ofType: "lproj"),
-                      let bundleDefault = Bundle(path: pathDefault) {
-                bundleSetted = bundleDefault
-                return bundleDefault
-            }
-          }
-          return Bundle(for: BundleToken.self)
-      }
+extension {{param.enumName|default:"L10n"}} {
+  private static func tr(_ table: String, _ key: String) -> String {
+    return {{param.lookupFunction}}(key, table)
   }
 }
-{% endif %}
-// swiftlint:enable convenience_type
-{% endif %}
-{% else %}
-// No string found
-{% endif %}
-// swiftlint:enable all

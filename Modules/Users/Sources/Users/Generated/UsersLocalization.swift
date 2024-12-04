@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// suasiuabsiua
+  internal static let hanLe = L10n.tr("Localizable", "han_le", fallback: "suasiuabsiua")
   /// New
   internal static let networkServiceTextNew = L10n.tr("Localizable", "network_service_text_new", fallback: "New")
 }

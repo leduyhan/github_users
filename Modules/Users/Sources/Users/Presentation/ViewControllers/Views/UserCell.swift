@@ -11,8 +11,8 @@ import Kingfisher
 import DesignSystem
 
 final class UserCell: BaseCollectionViewCell {
+    
     // MARK: - UI Components
-
     private lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = Design.Colors.white500

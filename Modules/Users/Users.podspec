@@ -31,6 +31,8 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '13.0'
   s.source_files = 'Sources/Users/**/*'
 
+  s.resources = ['Sources/Users/Resources/**/*.{png,jpeg,jpg,xcassets}']
+
   s.dependency 'Domain'
   s.dependency 'AppShared'
   s.dependency 'RxRelay'
