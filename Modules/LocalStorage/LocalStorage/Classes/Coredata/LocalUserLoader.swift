@@ -7,6 +7,12 @@
 
 import Domain
 
+public protocol UserCache {
+    func save(_ users: [User]) throws
+    func load() throws -> [User]
+    func validateCache() throws
+}
+
 public final class LocalUserLoader {
     private let store: UserStore
     private let currentDate: () -> Date
@@ -17,7 +23,7 @@ public final class LocalUserLoader {
     }
 }
 
-extension LocalUserLoader {
+extension LocalUserLoader: UserCache {
     public func save(_ users: [User]) throws {
         try store.deleteCachedUsers()
         try store.insert(users.toLocal(), timestamp: currentDate())

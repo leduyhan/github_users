@@ -9,99 +9,69 @@ import NetworkService
 import RxSwift
 import Domain
 import LocalStorage
+import AppShared
 
 public final class DefaultUserRepository: UserRepository {
     private let networkClient: NetworkClient<UserAPI>
     private let mapper: ResponseMapper
-    private let cache: LocalUserLoader
+    private let cache: UserCache
 
     public init(
         networkClient: NetworkClient<UserAPI> = NetworkClient(),
         mapper: ResponseMapper = DefaultResponseMapper(),
-        cache: LocalUserLoader
-    ) {
+        store: UserStore = DIContainer.shared.resolve(type: UserStore.self) ?? InMemoryUserStore())
+    {
         self.networkClient = networkClient
         self.mapper = mapper
-        self.cache = cache
+        self.cache = LocalUserLoader(store: store, currentDate: Date.init)
     }
 
-    public func fetchUsers(since: Int, perPage: Int, forceRefresh: Bool = false) -> Single<[User]> {
-        return Single.create { [weak self] single in
-            guard let self = self else { return Disposables.create() }
-            
-            // Use cache for initial non-forced load
-            if since == 0, !forceRefresh,
-               let cachedUsers = try? self.cache.load(),
-               !cachedUsers.isEmpty {
-                single(.success(cachedUsers))
+    public func fetchUsers(since: Int, perPage: Int, forceRefresh: Bool = false) -> Observable<[User]> {
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onCompleted()
                 return Disposables.create()
+            }
+            
+            // First load from cache if it's first page
+            if since == 0, !forceRefresh {
+                if let cachedUsers = try? self.cache.load(),
+                   !cachedUsers.isEmpty {
+                    observer.onNext(cachedUsers)
+                }
             }
 
             let networkDisposable = self.networkClient
                 .request(UserAPI.users(since: since, perPage: perPage))
-                .map { (dtos: [UserDTO]) in
+                .asObservable()
+                .map { [weak self] (dtos: [UserDTO]) -> [User] in
+                    guard let self = self else { return [] }
                     let users = dtos.map(self.mapper.map)
-                    try? self.cache.save(users)
+                    
+                    if since == 0 {
+                        try? self.cache.save(users)
+                    }
+                    
                     return users
                 }
-                .catch { error in
-                    // Fallback to cache on network failure
-                    if forceRefresh,
-                        let cachedUsers = try? self.cache.load()
-                    {
-                        return .just(cachedUsers)
+                .share(replay: 1, scope: .whileConnected)
+                .subscribe(
+                    with: self,
+                    onNext: { _, users in
+                        observer.onNext(users)
+                        observer.onCompleted()
+                    },
+                    onError: { _, error in
+                        observer.onError(error)
                     }
-                    return .error(error)
-                }
-                .subscribe(onSuccess: { users in
-                    single(.success(users))
-                }, onFailure: { error in
-                    single(.failure(error))
-                })
-            
+                )
             return networkDisposable
-        }
+        }.distinctUntilChanged()
     }
     
     public func fetchUserDetail(username: String) -> Single<UserDetail> {
         return networkClient
             .request(UserAPI.userDetail(username: username))
             .map(self.mapper.map)
-    }
-}
-
-public struct UserRepositoryFactory {
-    public static func makeRepository() -> UserRepository {
-        let storeURL = FileManager.default
-            .urls(for: .documentDirectory, in: .userDomainMask)
-            .first!
-            .appendingPathComponent("user-store.sqlite")
-        
-        guard let store = try? CoreDataUserStore(storeURL: storeURL) else {
-            // Provide a fallback repository without cache
-            return DefaultUserRepository(
-                networkClient: NetworkClient(),
-                mapper: DefaultResponseMapper(),
-                cache: makeInMemoryCache() // In-memory cache as fallback
-            )
-        }
-        
-        let cache = LocalUserLoader(
-            store: store,
-            currentDate: Date.init
-        )
-        
-        return DefaultUserRepository(
-            networkClient: NetworkClient(),
-            mapper: DefaultResponseMapper(),
-            cache: cache
-        )
-    }
-    
-    private static func makeInMemoryCache() -> LocalUserLoader {
-        return LocalUserLoader(
-            store: InMemoryUserStore(),
-            currentDate: Date.init
-        )
     }
 }

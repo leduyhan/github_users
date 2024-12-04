@@ -40,5 +40,6 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
    s.dependency 'NetworkService'
    s.dependency 'LocalStorage'
+   s.dependency 'AppShared'
    
 end

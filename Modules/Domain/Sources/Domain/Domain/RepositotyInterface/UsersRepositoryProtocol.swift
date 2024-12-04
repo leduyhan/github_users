@@ -9,6 +9,6 @@ import NetworkService
 import RxSwift
 
 public protocol UserRepository {
-    func fetchUsers(since: Int, perPage: Int, forceRefresh: Bool) -> Single<[User]>
+    func fetchUsers(since: Int, perPage: Int, forceRefresh: Bool) -> Observable<[User]>
     func fetchUserDetail(username: String) -> Single<UserDetail>
 }

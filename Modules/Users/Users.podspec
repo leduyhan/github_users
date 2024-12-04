@@ -29,7 +29,6 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
-
   s.source_files = 'Sources/Users/**/*'
 
   s.dependency 'Domain'
@@ -40,4 +39,15 @@ TODO: Add long description of the pod here.
   s.dependency 'RxCocoa'
   s.dependency 'Data'
   s.dependency 'Coordinator'
+  
+  s.test_spec 'UsersTests' do |test_spec|
+    test_spec.source_files = 'Tests/UsersTests/**/*.{h,m,swift}'
+    test_spec.frameworks = 'XCTest'
+    test_spec.dependency 'SnapshotTesting'
+    test_spec.dependency 'RxTest'
+    
+    test_spec.resource_bundles = {
+      'UsersTests' => ['Sources/Users/Resources/**/*.{json,webp,png,jpg}']
+    }
+  end
 end

@@ -75,7 +75,7 @@ final class UserListViewModel {
     
     // MARK: - Initialization
     
-    init(useCase: FetchUsersUseCase = DefaultFetchUsersUseCase(repository: UserRepositoryFactory.makeRepository())) {
+    init(useCase: FetchUsersUseCase = DefaultFetchUsersUseCase(repository: DefaultUserRepository())) {
         self.useCase = useCase
         setupBindings()
     }
@@ -191,9 +191,8 @@ private extension UserListViewModel {
         }
         
         return useCase.execute(since: page * Constants.perPage,
-                             perPage: Constants.perPage,
-                             forceRefresh: isRefresh)
-            .asObservable()
+                              perPage: Constants.perPage,
+                              forceRefresh: isRefresh)
             .map { $0.map(UserCellItem.init) }
             .do(
                 onNext: { [weak self] _ in

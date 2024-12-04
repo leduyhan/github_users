@@ -29,7 +29,6 @@ Pod::Spec.new do |s|
   s.test_spec 'NetworkServiceTests' do |test_spec|
     test_spec.source_files = 'Tests/NetworkServiceTests/**/*.{h,m,swift}'
     test_spec.frameworks = 'XCTest'
-    test_spec.dependency 'SnapshotTesting'
     
     test_spec.resource_bundles = {
       'NetworkServiceTests' => ['Sources/NetworkService/Resources/**/*.{json,webp,png,jpg}']

@@ -7,7 +7,7 @@ target 'TymeX' do
   pod 'Coordinator', :path => 'Modules/Coordinator'
   pod 'DesignSystem', :path => 'Modules/DesignSystem'
   pod 'Domain', :path => 'Modules/Domain'
-  pod 'Users', :path => 'Modules/Users'
+  pod 'Users', :path => 'Modules/Users', :testspecs => ['UsersTests'], :inhibit_warnings => false
   pod 'AppShared', :path => 'Modules/AppShared'
   pod 'LocalStorage', :path => 'Modules/LocalStorage'
   pod 'Data', :path => 'Modules/Data'

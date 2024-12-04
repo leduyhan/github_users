@@ -39,7 +39,10 @@ final class UserDetailViewModel {
     private let viewDidLoadRelay = PublishRelay<Void>()
     private let userRelay = BehaviorRelay<UserDetail?>(value: nil)
     
-    init(username: String, useCase: FetchUserDetailUseCase = DefaultFetchUserDetailUseCase(repository: UserRepositoryFactory.makeRepository())) {
+    init(
+        username: String,
+        useCase: FetchUserDetailUseCase = DefaultFetchUserDetailUseCase(repository: DefaultUserRepository())
+    ) {
         self.username = username
         self.useCase = useCase
         setupBindings()
