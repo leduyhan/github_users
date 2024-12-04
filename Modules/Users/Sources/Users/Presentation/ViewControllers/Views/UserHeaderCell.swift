@@ -6,13 +6,14 @@
 //
 
 import AppShared
+import DesignSystem
 
 final class UserHeaderCell: BaseCollectionViewCell {
     private lazy var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = Design.Colors.white500
         view.layer.cornerRadius = 12
-        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowColor = Design.Colors.black500?.cgColor
         view.layer.shadowOffset = .zero
         view.layer.shadowRadius = 10
         view.layer.shadowOpacity = 0.1
@@ -21,7 +22,7 @@ final class UserHeaderCell: BaseCollectionViewCell {
     
     private lazy var avatarContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = Design.Colors.gray400
         view.layer.cornerRadius = 30
         return view
     }()
@@ -34,21 +35,21 @@ final class UserHeaderCell: BaseCollectionViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = Design.Typography.semibold16
         return label
     }()
     
     private lazy var locationIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "location")
-        imageView.tintColor = .gray
+        imageView.tintColor = Design.Colors.gray400
         return imageView
     }()
     
     private lazy var locationLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = .gray
+        label.font = Design.Typography.regular14
+        label.textColor = Design.Colors.gray400
         return label
     }()
     

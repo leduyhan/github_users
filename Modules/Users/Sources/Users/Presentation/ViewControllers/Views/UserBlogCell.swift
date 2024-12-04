@@ -6,18 +6,19 @@
 //
 
 import AppShared
+import DesignSystem
 
 final class UserBlogCell: BaseCollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = Design.Typography.semibold16
         label.text = "Blog"
         return label
     }()
     
     private lazy var blogLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
+        label.font = Design.Typography.regular14
         label.textColor = .link
         return label
     }()

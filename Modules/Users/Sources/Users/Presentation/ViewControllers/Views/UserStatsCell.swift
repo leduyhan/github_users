@@ -6,6 +6,7 @@
 //
 
 import AppShared
+import DesignSystem
 
 final class UserStatsCell: BaseCollectionViewCell {
     private lazy var statsStackView: UIStackView = {
@@ -40,22 +41,22 @@ final class UserStatsCell: BaseCollectionViewCell {
     
     private func createStatsView(icon: String, count: Int, title: String) -> UIView {
         let container = UIView()
-        container.backgroundColor = .white
+        container.backgroundColor = Design.Colors.white500
         container.layer.cornerRadius = 12
         
         let iconView = UIImageView(image: UIImage(systemName: icon))
-        iconView.tintColor = .black
+        iconView.tintColor = Design.Colors.black500
         iconView.contentMode = .scaleAspectFit
         
         let countLabel = UILabel()
         countLabel.text = "\(count)+"
-        countLabel.font = .systemFont(ofSize: 16, weight: .medium)
+        countLabel.font = Design.Typography.semibold16
         countLabel.textAlignment = .center
         
         let titleLabel = UILabel()
         titleLabel.text = title
-        titleLabel.font = .systemFont(ofSize: 14)
-        titleLabel.textColor = .gray
+        titleLabel.font = Design.Typography.regular14
+        titleLabel.textColor = Design.Colors.gray400
         titleLabel.textAlignment = .center
         
         container.addSubview(iconView)

@@ -8,15 +8,16 @@
 import AppShared
 import Domain
 import Kingfisher
+import DesignSystem
 
 final class UserCell: BaseCollectionViewCell {
     // MARK: - UI Components
 
     private lazy var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = Design.Colors.white500
         view.layer.cornerRadius = 12
-        view.layer.shadowColor = UIColor(white: 0, alpha: 0.1).cgColor
+        view.layer.shadowColor = Design.Colors.white500?.withAlphaComponent(0.1).cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 2)
         view.layer.shadowRadius = 8
         view.layer.shadowOpacity = 1
@@ -28,20 +29,20 @@ final class UserCell: BaseCollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 25
-        imageView.backgroundColor = .systemGray6
+        imageView.backgroundColor = Design.Colors.gray400
         return imageView
     }()
 
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .medium)
-        label.textColor = .black
+        label.font = Design.Typography.semibold14
+        label.textColor = Design.Colors.black500
         return label
     }()
 
     private lazy var urlLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
+        label.font = Design.Typography.regular14
         label.textColor = .systemBlue
         return label
     }()

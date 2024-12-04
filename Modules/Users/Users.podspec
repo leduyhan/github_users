@@ -39,7 +39,8 @@ TODO: Add long description of the pod here.
   s.dependency 'RxCocoa'
   s.dependency 'Data'
   s.dependency 'Coordinator'
-  
+  s.dependency 'DesignSystem'
+
   s.test_spec 'UsersTests' do |test_spec|
     test_spec.source_files = 'Tests/UsersTests/**/*.{h,m,swift}'
     test_spec.frameworks = 'XCTest'

@@ -49,6 +49,7 @@ PODS:
     - AppShared
     - Coordinator
     - Data
+    - DesignSystem
     - Domain
     - Kingfisher
     - RxCocoa
@@ -58,6 +59,7 @@ PODS:
     - AppShared
     - Coordinator
     - Data
+    - DesignSystem
     - Domain
     - Kingfisher
     - RxCocoa
@@ -115,7 +117,7 @@ SPEC CHECKSUMS:
   AppShared: a87b27d9242e14741548f2cd487c3abbf6fd8719
   Coordinator: 830f58b14c6faee47d6de3280db663f264b14364
   Data: 628c7e4fc756df45a28d3b31b2162389a9f13224
-  DesignSystem: 8053e414071d67dea2f18b1bb2700368869d3217
+  DesignSystem: e31fdcafea846b4d6b020527bc1a3047cc5e26d4
   Domain: 0f489a9361ea91d6f4b68ffa6afee0e5310f9e41
   Kingfisher: fc2788e497306f97fdef6e4df49f02106cb57788
   LocalStorage: ce0704e0b31c75cde4650b362afa735c5e0d379d
@@ -128,7 +130,7 @@ SPEC CHECKSUMS:
   RxTest: d0fa1ec82feb41efa826a59173ec65eafbbe4aaf
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
-  Users: 4f6106fa075858ba90808fd319437003cbf06b55
+  Users: dedd5225e2f87d4afca0f6cbfb372ad5553d6a52
 
 PODFILE CHECKSUM: e7eb35a0ed067b4c83065e3c41565351612f9fcb
 

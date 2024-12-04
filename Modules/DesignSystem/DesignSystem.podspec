@@ -28,13 +28,14 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/han.sts/DesignSystem.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
 
-  s.source_files = 'DesignSystem/Classes/**/*'
+  s.source_files = 'Sources/DesignSystem/**/*'
   
-  # s.resource_bundles = {
-  #   'DesignSystem' => ['DesignSystem/Assets/*.png']
-  # }
+   s.resource_bundles = {
+     'DesignSystem' => ['Sources/DesignSystem/Assets/*']
+   }
+
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

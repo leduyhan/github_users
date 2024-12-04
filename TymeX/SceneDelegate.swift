@@ -9,6 +9,7 @@ import UIKit
 import Users
 import AppShared
 import LocalStorage
+import DesignSystem
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -16,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var userCoordinator: UserCoordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        Design.initialize()
         guard let windowScene = (scene as? UIWindowScene) else { return }
         DIContainer.shared.setupCoreData()
         let window = UIWindow(windowScene: windowScene)
