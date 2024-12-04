@@ -1,0 +1,760 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06333CB633003EE490BBF218 /* Pods_TymeX_TymeXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64BFC69D94045986BB64320 /* Pods_TymeX_TymeXUITests.framework */; };
+		3F8628202CFDC1CD009FDF94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86281F2CFDC1CD009FDF94 /* AppDelegate.swift */; };
+		3F8628222CFDC1CD009FDF94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8628212CFDC1CD009FDF94 /* SceneDelegate.swift */; };
+		3F8628292CFDC1CF009FDF94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8628282CFDC1CF009FDF94 /* Assets.xcassets */; };
+		3F86282C2CFDC1CF009FDF94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F86282A2CFDC1CF009FDF94 /* LaunchScreen.storyboard */; };
+		3F8628372CFDC1CF009FDF94 /* TymeXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8628362CFDC1CF009FDF94 /* TymeXTests.swift */; };
+		3F8628412CFDC1CF009FDF94 /* TymeXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8628402CFDC1CF009FDF94 /* TymeXUITests.swift */; };
+		3F8628432CFDC1CF009FDF94 /* TymeXUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8628422CFDC1CF009FDF94 /* TymeXUITestsLaunchTests.swift */; };
+		3FFC9E792CFFF8E600A26935 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC9E782CFFF8E600A26935 /* AppCoordinator.swift */; };
+		B7ADECC921F91068C73083EF /* Pods_TymeXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C476552346FACE99A234D437 /* Pods_TymeXTests.framework */; };
+		CD8B178119C539E7A3C0F0F8 /* Pods_TymeX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533D30A737E5A76ED3D95B5D /* Pods_TymeX.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F8628332CFDC1CF009FDF94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F8628142CFDC1CD009FDF94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F86281B2CFDC1CD009FDF94;
+			remoteInfo = TymeX;
+		};
+		3F86283D2CFDC1CF009FDF94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F8628142CFDC1CD009FDF94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F86281B2CFDC1CD009FDF94;
+			remoteInfo = TymeX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F86281C2CFDC1CD009FDF94 /* TymeX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TymeX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F86281F2CFDC1CD009FDF94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F8628212CFDC1CD009FDF94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3F8628282CFDC1CF009FDF94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F86282B2CFDC1CF009FDF94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F86282D2CFDC1CF009FDF94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F8628322CFDC1CF009FDF94 /* TymeXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TymeXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F8628362CFDC1CF009FDF94 /* TymeXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymeXTests.swift; sourceTree = "<group>"; };
+		3F86283C2CFDC1CF009FDF94 /* TymeXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TymeXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F8628402CFDC1CF009FDF94 /* TymeXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymeXUITests.swift; sourceTree = "<group>"; };
+		3F8628422CFDC1CF009FDF94 /* TymeXUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymeXUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3FFC9E782CFFF8E600A26935 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		491421610B9035E392173908 /* Pods-TymeX-TymeXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX-TymeXUITests.debug.xcconfig"; path = "Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		533D30A737E5A76ED3D95B5D /* Pods_TymeX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TymeX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DB36EA62368296387CE5AA2 /* Pods-TymeX-TymeXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX-TymeXUITests.release.xcconfig"; path = "Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5F0BDC45375A1101962C8496 /* Pods-TymeXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeXTests.debug.xcconfig"; path = "Target Support Files/Pods-TymeXTests/Pods-TymeXTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A87DB82C5A90C52FE0627163 /* Pods-TymeX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX.release.xcconfig"; path = "Target Support Files/Pods-TymeX/Pods-TymeX.release.xcconfig"; sourceTree = "<group>"; };
+		AC15CB162612872D03202C14 /* Pods-TymeX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX.debug.xcconfig"; path = "Target Support Files/Pods-TymeX/Pods-TymeX.debug.xcconfig"; sourceTree = "<group>"; };
+		B64BFC69D94045986BB64320 /* Pods_TymeX_TymeXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TymeX_TymeXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C476552346FACE99A234D437 /* Pods_TymeXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TymeXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C7564372A79FB738101174 /* Pods-TymeXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeXTests.release.xcconfig"; path = "Target Support Files/Pods-TymeXTests/Pods-TymeXTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F8628192CFDC1CD009FDF94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD8B178119C539E7A3C0F0F8 /* Pods_TymeX.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F86282F2CFDC1CF009FDF94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7ADECC921F91068C73083EF /* Pods_TymeXTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F8628392CFDC1CF009FDF94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06333CB633003EE490BBF218 /* Pods_TymeX_TymeXUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14838D7F910566B7712376A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC15CB162612872D03202C14 /* Pods-TymeX.debug.xcconfig */,
+				A87DB82C5A90C52FE0627163 /* Pods-TymeX.release.xcconfig */,
+				491421610B9035E392173908 /* Pods-TymeX-TymeXUITests.debug.xcconfig */,
+				5DB36EA62368296387CE5AA2 /* Pods-TymeX-TymeXUITests.release.xcconfig */,
+				5F0BDC45375A1101962C8496 /* Pods-TymeXTests.debug.xcconfig */,
+				F8C7564372A79FB738101174 /* Pods-TymeXTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3F8628132CFDC1CD009FDF94 = {
+			isa = PBXGroup;
+			children = (
+				3F86281E2CFDC1CD009FDF94 /* TymeX */,
+				3F8628352CFDC1CF009FDF94 /* TymeXTests */,
+				3F86283F2CFDC1CF009FDF94 /* TymeXUITests */,
+				3F86281D2CFDC1CD009FDF94 /* Products */,
+				14838D7F910566B7712376A4 /* Pods */,
+				5A01605344DCA313BA195ECE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3F86281D2CFDC1CD009FDF94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F86281C2CFDC1CD009FDF94 /* TymeX.app */,
+				3F8628322CFDC1CF009FDF94 /* TymeXTests.xctest */,
+				3F86283C2CFDC1CF009FDF94 /* TymeXUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F86281E2CFDC1CD009FDF94 /* TymeX */ = {
+			isa = PBXGroup;
+			children = (
+				3F86281F2CFDC1CD009FDF94 /* AppDelegate.swift */,
+				3F8628212CFDC1CD009FDF94 /* SceneDelegate.swift */,
+				3F8628282CFDC1CF009FDF94 /* Assets.xcassets */,
+				3F86282A2CFDC1CF009FDF94 /* LaunchScreen.storyboard */,
+				3F86282D2CFDC1CF009FDF94 /* Info.plist */,
+				3FFC9E782CFFF8E600A26935 /* AppCoordinator.swift */,
+			);
+			path = TymeX;
+			sourceTree = "<group>";
+		};
+		3F8628352CFDC1CF009FDF94 /* TymeXTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F8628362CFDC1CF009FDF94 /* TymeXTests.swift */,
+			);
+			path = TymeXTests;
+			sourceTree = "<group>";
+		};
+		3F86283F2CFDC1CF009FDF94 /* TymeXUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3F8628402CFDC1CF009FDF94 /* TymeXUITests.swift */,
+				3F8628422CFDC1CF009FDF94 /* TymeXUITestsLaunchTests.swift */,
+			);
+			path = TymeXUITests;
+			sourceTree = "<group>";
+		};
+		5A01605344DCA313BA195ECE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				533D30A737E5A76ED3D95B5D /* Pods_TymeX.framework */,
+				B64BFC69D94045986BB64320 /* Pods_TymeX_TymeXUITests.framework */,
+				C476552346FACE99A234D437 /* Pods_TymeXTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F86281B2CFDC1CD009FDF94 /* TymeX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F8628462CFDC1CF009FDF94 /* Build configuration list for PBXNativeTarget "TymeX" */;
+			buildPhases = (
+				3D58D5796E2F117A978F5FB8 /* [CP] Check Pods Manifest.lock */,
+				3F8628182CFDC1CD009FDF94 /* Sources */,
+				3F8628192CFDC1CD009FDF94 /* Frameworks */,
+				3F86281A2CFDC1CD009FDF94 /* Resources */,
+				BF6BF77B0138E431BC0C7A14 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TymeX;
+			productName = TymeX;
+			productReference = 3F86281C2CFDC1CD009FDF94 /* TymeX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3F8628312CFDC1CF009FDF94 /* TymeXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F8628492CFDC1CF009FDF94 /* Build configuration list for PBXNativeTarget "TymeXTests" */;
+			buildPhases = (
+				03B127C53967B28DFC38A7DD /* [CP] Check Pods Manifest.lock */,
+				3F86282E2CFDC1CF009FDF94 /* Sources */,
+				3F86282F2CFDC1CF009FDF94 /* Frameworks */,
+				3F8628302CFDC1CF009FDF94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F8628342CFDC1CF009FDF94 /* PBXTargetDependency */,
+			);
+			name = TymeXTests;
+			productName = TymeXTests;
+			productReference = 3F8628322CFDC1CF009FDF94 /* TymeXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3F86283B2CFDC1CF009FDF94 /* TymeXUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F86284C2CFDC1CF009FDF94 /* Build configuration list for PBXNativeTarget "TymeXUITests" */;
+			buildPhases = (
+				BD673AEAC91CE9EDC4EFD7B2 /* [CP] Check Pods Manifest.lock */,
+				3F8628382CFDC1CF009FDF94 /* Sources */,
+				3F8628392CFDC1CF009FDF94 /* Frameworks */,
+				3F86283A2CFDC1CF009FDF94 /* Resources */,
+				EF1097363087B372E27DFFF5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F86283E2CFDC1CF009FDF94 /* PBXTargetDependency */,
+			);
+			name = TymeXUITests;
+			productName = TymeXUITests;
+			productReference = 3F86283C2CFDC1CF009FDF94 /* TymeXUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F8628142CFDC1CD009FDF94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					3F86281B2CFDC1CD009FDF94 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					3F8628312CFDC1CF009FDF94 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 3F86281B2CFDC1CD009FDF94;
+					};
+					3F86283B2CFDC1CF009FDF94 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 3F86281B2CFDC1CD009FDF94;
+					};
+				};
+			};
+			buildConfigurationList = 3F8628172CFDC1CD009FDF94 /* Build configuration list for PBXProject "TymeX" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F8628132CFDC1CD009FDF94;
+			productRefGroup = 3F86281D2CFDC1CD009FDF94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F86281B2CFDC1CD009FDF94 /* TymeX */,
+				3F8628312CFDC1CF009FDF94 /* TymeXTests */,
+				3F86283B2CFDC1CF009FDF94 /* TymeXUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F86281A2CFDC1CD009FDF94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F86282C2CFDC1CF009FDF94 /* LaunchScreen.storyboard in Resources */,
+				3F8628292CFDC1CF009FDF94 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F8628302CFDC1CF009FDF94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F86283A2CFDC1CF009FDF94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03B127C53967B28DFC38A7DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TymeXTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D58D5796E2F117A978F5FB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TymeX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD673AEAC91CE9EDC4EFD7B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TymeX-TymeXUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF6BF77B0138E431BC0C7A14 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TymeX/Pods-TymeX-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TymeX/Pods-TymeX-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TymeX/Pods-TymeX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF1097363087B372E27DFFF5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F8628182CFDC1CD009FDF94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FFC9E792CFFF8E600A26935 /* AppCoordinator.swift in Sources */,
+				3F8628202CFDC1CD009FDF94 /* AppDelegate.swift in Sources */,
+				3F8628222CFDC1CD009FDF94 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F86282E2CFDC1CF009FDF94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F8628372CFDC1CF009FDF94 /* TymeXTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F8628382CFDC1CF009FDF94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F8628432CFDC1CF009FDF94 /* TymeXUITestsLaunchTests.swift in Sources */,
+				3F8628412CFDC1CF009FDF94 /* TymeXUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F8628342CFDC1CF009FDF94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F86281B2CFDC1CD009FDF94 /* TymeX */;
+			targetProxy = 3F8628332CFDC1CF009FDF94 /* PBXContainerItemProxy */;
+		};
+		3F86283E2CFDC1CF009FDF94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F86281B2CFDC1CD009FDF94 /* TymeX */;
+			targetProxy = 3F86283D2CFDC1CF009FDF94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F86282A2CFDC1CF009FDF94 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F86282B2CFDC1CF009FDF94 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F8628442CFDC1CF009FDF94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F8628452CFDC1CF009FDF94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F8628472CFDC1CF009FDF94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC15CB162612872D03202C14 /* Pods-TymeX.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U53GX7C3X;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TymeX/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tymex.homework.TymeX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F8628482CFDC1CF009FDF94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A87DB82C5A90C52FE0627163 /* Pods-TymeX.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U53GX7C3X;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TymeX/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tymex.homework.TymeX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3F86284A2CFDC1CF009FDF94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F0BDC45375A1101962C8496 /* Pods-TymeXTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U53GX7C3X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tymex.homework.TymeXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TymeX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TymeX";
+			};
+			name = Debug;
+		};
+		3F86284B2CFDC1CF009FDF94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8C7564372A79FB738101174 /* Pods-TymeXTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U53GX7C3X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tymex.homework.TymeXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TymeX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TymeX";
+			};
+			name = Release;
+		};
+		3F86284D2CFDC1CF009FDF94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 491421610B9035E392173908 /* Pods-TymeX-TymeXUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U53GX7C3X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tymex.homework.TymeXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TymeX;
+			};
+			name = Debug;
+		};
+		3F86284E2CFDC1CF009FDF94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DB36EA62368296387CE5AA2 /* Pods-TymeX-TymeXUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U53GX7C3X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tymex.homework.TymeXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TymeX;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F8628172CFDC1CD009FDF94 /* Build configuration list for PBXProject "TymeX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F8628442CFDC1CF009FDF94 /* Debug */,
+				3F8628452CFDC1CF009FDF94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F8628462CFDC1CF009FDF94 /* Build configuration list for PBXNativeTarget "TymeX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F8628472CFDC1CF009FDF94 /* Debug */,
+				3F8628482CFDC1CF009FDF94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F8628492CFDC1CF009FDF94 /* Build configuration list for PBXNativeTarget "TymeXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F86284A2CFDC1CF009FDF94 /* Debug */,
+				3F86284B2CFDC1CF009FDF94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F86284C2CFDC1CF009FDF94 /* Build configuration list for PBXNativeTarget "TymeXUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F86284D2CFDC1CF009FDF94 /* Debug */,
+				3F86284E2CFDC1CF009FDF94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F8628142CFDC1CD009FDF94 /* Project object */;
+}
