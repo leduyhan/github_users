@@ -1,0 +1,20 @@
+strings:
+ inputs: Sources/NetworkService/Resources/Localizable/en.lproj
+ outputs:
+   templatePath: ../../swiftgen.stencil
+   params:
+     publicAccess: true
+     enumName: NetworkServiceLocalization 
+     bundle: NetworkService
+     lookupFunction: LanguageService.service.dynamicLocalizedStringBundle
+   output: Sources/NetworkService/Generated/NetworkServiceLocalization.swift
+# xcassets:
+# inputs: Sources/NetworkService/Resources/Assets.xcassets
+# outputs:
+#   templatePath: ../../swiftgen_assets.stencil
+#   params:
+#     publicAccess: true
+#     enumName: NetworkServiceAssets
+#     bundleName: NetworkService
+#     imageTypeName: NetworkServiceImages
+#   output: Sources/NetworkService/Resources/Generated/NetworkServiceAssets.swift

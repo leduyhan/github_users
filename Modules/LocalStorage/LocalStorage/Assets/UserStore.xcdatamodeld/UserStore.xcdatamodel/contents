@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="24A335" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ManagedUser" representedClassName="ManagedUser" syncable="YES">
+        <attribute name="avatarURL" optional="YES" attributeType="String"/>
+        <attribute name="htmlURL" optional="YES" attributeType="String"/>
+        <attribute name="login" optional="YES" attributeType="String"/>
+        <relationship name="cache" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedUserCache" inverseName="users" inverseEntity="ManagedUserCache"/>
+    </entity>
+    <entity name="ManagedUserCache" representedClassName="ManagedUserCache" syncable="YES">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="users" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ManagedUser" inverseName="cache" inverseEntity="ManagedUser"/>
+    </entity>
+</model>
