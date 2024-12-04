@@ -17,6 +17,8 @@ PODS:
   - Kingfisher (8.1.1)
   - LocalStorage (0.1.0):
     - Domain
+  - LocalStorage/LocalStorageTests (0.1.0):
+    - Domain
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
@@ -71,6 +73,7 @@ DEPENDENCIES:
   - DesignSystem (from `Modules/DesignSystem`)
   - Domain (from `Modules/Domain`)
   - LocalStorage (from `Modules/LocalStorage`)
+  - LocalStorage/LocalStorageTests (from `Modules/LocalStorage`)
   - NetworkService (from `Modules/NetworkService`)
   - NetworkService/NetworkServiceTests (from `Modules/NetworkService`)
   - Users (from `Modules/Users`)
@@ -115,7 +118,7 @@ SPEC CHECKSUMS:
   DesignSystem: 8053e414071d67dea2f18b1bb2700368869d3217
   Domain: 0f489a9361ea91d6f4b68ffa6afee0e5310f9e41
   Kingfisher: fc2788e497306f97fdef6e4df49f02106cb57788
-  LocalStorage: 646008f21bc06112549ba8518bc2d589e957f00c
+  LocalStorage: ce0704e0b31c75cde4650b362afa735c5e0d379d
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   NetworkService: cf38a56a802d53bdec6f151fcddb815edff2ba5a
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
@@ -127,6 +130,6 @@ SPEC CHECKSUMS:
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   Users: 4f6106fa075858ba90808fd319437003cbf06b55
 
-PODFILE CHECKSUM: 60bc454ae4295c3f6ae82ec38a51800e46be7cfa
+PODFILE CHECKSUM: e7eb35a0ed067b4c83065e3c41565351612f9fcb
 
 COCOAPODS: 1.15.2

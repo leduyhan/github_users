@@ -9,7 +9,7 @@ target 'TymeX' do
   pod 'Domain', :path => 'Modules/Domain'
   pod 'Users', :path => 'Modules/Users', :testspecs => ['UsersTests'], :inhibit_warnings => false
   pod 'AppShared', :path => 'Modules/AppShared'
-  pod 'LocalStorage', :path => 'Modules/LocalStorage'
+  pod 'LocalStorage', :path => 'Modules/LocalStorage', :testspecs => ['LocalStorageTests'], :inhibit_warnings => false
   pod 'Data', :path => 'Modules/Data'
 
   target 'TymeXTests' do
