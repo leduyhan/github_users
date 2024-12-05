@@ -20,6 +20,12 @@ final class UserListViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var dataSource: UserListDataSource?
     
+    private lazy var refreshControl: UIRefreshControl = {
+         let control = UIRefreshControl()
+         control.tintColor = Design.Colors.gray
+         return control
+     }()
+    
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
             frame: .zero,
@@ -29,6 +35,7 @@ final class UserListViewController: UIViewController {
         collectionView.register(cellType: LoaderCell.self)
         collectionView.backgroundColor = Design.Colors.white500
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.refreshControl = refreshControl
         return collectionView
     }()
     
@@ -120,6 +127,28 @@ private extension UserListViewController {
         bindSelection()
         bindInfiniteScrolling()
         bindError()
+        bindRefreshControl()
+    }
+    
+    func bindRefreshControl() {
+        refreshControl.rx.controlEvent(.valueChanged)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.viewModel.inputs.refresh()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.state
+            .map(\.isLoading)
+            .distinctUntilChanged()
+            .observe(on: MainScheduler.asyncInstance)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, isLoading in
+                if !isLoading {
+                    owner.refreshControl.endRefreshing()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     func bindError() {
@@ -127,7 +156,8 @@ private extension UserListViewController {
             .observe(on: MainScheduler.asyncInstance)
             .withUnretained(self)
             .subscribe(onNext: { owner, error in
-                owner.showError(error)
+                owner.showError(error.localizedDescription)
+                owner.refreshControl.endRefreshing()
             })
             .disposed(by: disposeBag)
     }

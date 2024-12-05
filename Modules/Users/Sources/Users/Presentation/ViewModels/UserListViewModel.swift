@@ -23,6 +23,7 @@ protocol UserListViewModelInputs {
     func viewDidLoad()
     func loadMore()
     func didSelectUser(at index: Int)
+    func refresh()
 }
 
 protocol UserListViewModelOutputs {
@@ -94,6 +95,10 @@ extension UserListViewModel: UserListViewModelInputs {
     func didSelectUser(at index: Int) {
         guard index >= 0, index < stateRelay.value.items.count else { return }
         selectedUserRelay.accept(stateRelay.value.items[index])
+    }
+    
+    func refresh() {
+        loadUsers(isInitialLoad: true)
     }
 }
 

@@ -47,13 +47,14 @@ public final class DefaultUserRepository: UserRepository {
             return .concat([
                 .just(cachedUsers),
                 fetchRemoteUsers(since: since, perPage: perPage)
+                    .asObservable()
                     .filter { remoteUsers in
                         // Only emit remote users if they're different from cached ones
                         !remoteUsers.elementsEqual(cachedUsers) { $0.login == $1.login }
                     },
             ])
         }
-        return fetchRemoteUsers(since: since, perPage: perPage)
+        return fetchRemoteUsers(since: since, perPage: perPage).asObservable()
     }
 
     public func fetchUserDetail(username: String) -> Single<UserDetail> {
@@ -63,7 +64,7 @@ public final class DefaultUserRepository: UserRepository {
             .map(dependencies.mapper.map)
     }
 
-    private func fetchRemoteUsers(since: Int, perPage: Int) -> Observable<[User]> {
+    private func fetchRemoteUsers(since: Int, perPage: Int) -> Single<[User]> {
         dependencies.networkClient
             .request(.users(since: since, perPage: perPage))
             .map { [weak self] (dtos: [UserDTO]) -> [User] in
@@ -76,7 +77,5 @@ public final class DefaultUserRepository: UserRepository {
                     try? self?.dependencies.cache.save(users)
                 }
             })
-            .asObservable()
-            .share(replay: 1, scope: .whileConnected)
     }
 }

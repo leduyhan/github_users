@@ -72,10 +72,10 @@ extension UICollectionView {
 }
 
 extension UIViewController {
-    public func showError(_ error: Error) {
+    public func showError(_ message: String) {
         let alert = UIAlertController(
             title: "Error",
-            message: error.localizedDescription,
+            message: message,
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: "OK", style: .default))
