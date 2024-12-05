@@ -7,20 +7,20 @@
 
 import Coordinator
 
-public final class AppCoordinator: Coordinator {
-    public var childCoordinators: [Coordinator] = []
-    public var finish: ((DeepLink?) -> Void)?
+final class AppCoordinator: Coordinator {
+    var childCoordinators: [Coordinator] = []
+    var finish: ((DeepLink?) -> Void)?
 
-    public lazy var tabBarController: UITabBarController = .init()
+    lazy var tabBarController: UITabBarController = .init()
     private let window: UIWindow
     private let configuration: Configuration
 
-    public init(window: UIWindow, configuration: Configuration) {
+    init(window: UIWindow, configuration: Configuration) {
         self.window = window
         self.configuration = configuration
     }
 
-    public func start() {
+    func start() {
         switch configuration.style {
         case .navigation:
             setupNavigationStyle()
@@ -65,26 +65,26 @@ public final class AppCoordinator: Coordinator {
         }
     }
 
-    public func start(link: DeepLink) -> Bool {
+    func start(link: DeepLink) -> Bool {
         return childCoordinators.map { $0.start(link: link) }.contains(true)
     }
 }
 
-public extension AppCoordinator {
+extension AppCoordinator {
     struct Configuration {
-        public enum PresentationStyle {
+        enum PresentationStyle {
             case tabBar, navigation
         }
 
-        public var style: PresentationStyle
+        var style: PresentationStyle
 
-        public init(style: PresentationStyle) {
+        init(style: PresentationStyle) {
             self.style = style
         }
     }
 }
 
-public extension AppCoordinator.Configuration {
+extension AppCoordinator.Configuration {
     static var userConfiguration: Self {
         .init(style: .navigation)
     }

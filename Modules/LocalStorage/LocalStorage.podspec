@@ -40,7 +40,8 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
    s.dependency 'Domain'
-   
+   s.dependency 'AppShared'
+
    s.test_spec 'LocalStorageTests' do |test_spec|
      test_spec.source_files = 'Tests/LocalStorageTests/**/*.{h,m,swift}'
      test_spec.frameworks = 'XCTest'

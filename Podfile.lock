@@ -16,8 +16,10 @@ PODS:
     - RxSwift
   - Kingfisher (8.1.1)
   - LocalStorage (0.1.0):
+    - AppShared
     - Domain
   - LocalStorage/LocalStorageTests (0.1.0):
+    - AppShared
     - Domain
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
@@ -120,7 +122,7 @@ SPEC CHECKSUMS:
   DesignSystem: e31fdcafea846b4d6b020527bc1a3047cc5e26d4
   Domain: 0f489a9361ea91d6f4b68ffa6afee0e5310f9e41
   Kingfisher: fc2788e497306f97fdef6e4df49f02106cb57788
-  LocalStorage: ce0704e0b31c75cde4650b362afa735c5e0d379d
+  LocalStorage: 162c930325f9315a041cef9554bcb0a2772f4691
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   NetworkService: cf38a56a802d53bdec6f151fcddb815edff2ba5a
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620

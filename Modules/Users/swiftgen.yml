@@ -4,8 +4,8 @@ strings:
    - templateName: structured-swift5
      output: Sources/Users/Generated/UsersLocalization.swift
 
-xcassets:
- inputs: Sources/Users/Resources/Assets.xcassets 
- outputs:
-   - templateName: swift5
-     output: Sources/Users/Generated/Assets.swift
+# xcassets:
+#  inputs: Sources/Users/Resources/Assets.xcassets 
+#  outputs:
+#    - templateName: swift5
+#      output: Sources/Users/Generated/Assets.swift

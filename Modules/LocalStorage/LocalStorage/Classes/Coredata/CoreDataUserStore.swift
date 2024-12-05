@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import AppShared
 
 public final class CoreDataUserStore {
     private static let modelName = "UserStore"
@@ -60,5 +61,20 @@ extension CoreDataUserStore: UserStore {
     
     public func deleteCachedUsers() throws {
         try ManagedUserCache.deleteCache(in: context)
+    }
+}
+
+extension DIContainer {
+    public func setupCoreData() {
+        let storeURL = FileManager.default
+            .urls(for: .documentDirectory, in: .userDomainMask)
+            .first!
+            .appendingPathComponent("user-store.sqlite")
+        
+        if let store = try? CoreDataUserStore(storeURL: storeURL) {
+            register(type: UserStore.self, dependency: store)
+        } else {
+            register(type: UserStore.self, dependency: InMemoryUserStore())
+        }
     }
 }

@@ -15,6 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     private var appCoordinator: AppCoordinator?
     private var userCoordinator: UserCoordinator?
+    private lazy var cache: UserCache = {
+        let store: UserStore = DIContainer.shared.resolve(type: UserStore.self) ?? InMemoryUserStore()
+        let cache = LocalUserLoader(store: store, currentDate: Date.init)
+        return cache
+    }()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         Design.initialize()
@@ -33,23 +38,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneWillResignActive(_: UIScene) {
-        let store: UserStore = DIContainer.shared.resolve(type: UserStore.self) ?? InMemoryUserStore()
-        let cache = LocalUserLoader(store: store, currentDate: Date.init)
         try? cache.validateCache()
-    }
-}
-
-extension DIContainer {
-    public func setupCoreData() {
-        let storeURL = FileManager.default
-            .urls(for: .documentDirectory, in: .userDomainMask)
-            .first!
-            .appendingPathComponent("user-store.sqlite")
-        
-        if let store = try? CoreDataUserStore(storeURL: storeURL) {
-            register(type: UserStore.self, dependency: store)
-        } else {
-            register(type: UserStore.self, dependency: InMemoryUserStore())
-        }
     }
 }
