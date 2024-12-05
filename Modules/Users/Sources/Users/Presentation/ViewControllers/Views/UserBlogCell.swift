@@ -19,7 +19,7 @@ final class UserBlogCell: BaseCollectionViewCell {
     private lazy var blogLabel: UILabel = {
         let label = UILabel()
         label.font = Design.Typography.regular14
-        label.textColor = .link
+        label.textColor = Design.Colors.gray
         return label
     }()
     

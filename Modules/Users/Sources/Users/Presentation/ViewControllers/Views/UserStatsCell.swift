@@ -13,7 +13,6 @@ final class UserStatsCell: BaseCollectionViewCell {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.distribution = .fillEqually
-        stack.spacing = 12
         return stack
     }()
     
@@ -34,15 +33,15 @@ final class UserStatsCell: BaseCollectionViewCell {
             count: item.following,
             title: "Following"
         )
-        
-        statsStackView.addArrangedSubview(followerView)
-        statsStackView.addArrangedSubview(followingView)
+        [
+            followerView,
+            followingView,
+        ].forEach { statsStackView.addArrangedSubview($0) }
     }
     
     private func createStatsView(icon: String, count: Int, title: String) -> UIView {
         let container = UIView()
-        container.backgroundColor = Design.Colors.white500
-        container.layer.cornerRadius = 12
+        container.backgroundColor = .clear
         
         let iconView = UIImageView(image: UIImage(systemName: icon))
         iconView.tintColor = Design.Colors.black500
@@ -56,7 +55,7 @@ final class UserStatsCell: BaseCollectionViewCell {
         let titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.font = Design.Typography.regular14
-        titleLabel.textColor = Design.Colors.gray400
+        titleLabel.textColor = Design.Colors.gray
         titleLabel.textAlignment = .center
         
         container.addSubview(iconView)
@@ -91,7 +90,7 @@ extension UserStatsCell: BaseViewConfiguration {
     
     func setupConstraints() {
         statsStackView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 16, bottom: 8, right: 16))
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 40, bottom: 8, right: 40))
         }
     }
 }
