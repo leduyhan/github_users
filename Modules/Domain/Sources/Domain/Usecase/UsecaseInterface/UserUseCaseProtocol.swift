@@ -8,7 +8,7 @@
 import RxSwift
 
 public protocol FetchUsersUseCase {
-    func execute(since: Int, perPage: Int, forceRefresh: Bool) -> Observable<[User]>
+    func execute(since: Int, perPage: Int) -> Observable<[User]>
 }
 
 public protocol FetchUserDetailUseCase {

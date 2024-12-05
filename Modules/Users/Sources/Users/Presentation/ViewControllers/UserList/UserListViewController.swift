@@ -27,14 +27,8 @@ final class UserListViewController: UIViewController {
         collectionView.register(cellType: UserCell.self)
         collectionView.register(cellType: LoaderCell.self)
         collectionView.backgroundColor = .systemGray6
-        collectionView.refreshControl = refreshControl
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
-    }()
-    
-    private lazy var refreshControl: UIRefreshControl = {
-        let control = UIRefreshControl()
-        return control
     }()
     
     private var onShowDetail: ((String) -> Void)?
@@ -121,34 +115,46 @@ private extension UserListViewController {
 // MARK: - Bindings
 private extension UserListViewController {
     func setupBindings() {
-        bindUsers()
+        bindViewState()
         bindSelection()
         bindInfiniteScrolling()
-        bindPullToRefresh()
-        bindErrors()
+        bindError()
     }
     
-    func bindUsers() {
-        Observable.combineLatest(
-            viewModel.outputs.items.distinctUntilChanged(),
-            viewModel.outputs.loadingState.distinctUntilChanged()
+    func bindError() {
+        viewModel.outputs.error
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, error in
+                owner.showError(error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func showError(_ error: Error) {
+        let alert = UIAlertController(
+            title: "Error",
+            message: error.localizedDescription,
+            preferredStyle: .alert
         )
-        .subscribe(
-            with: self,
-            onNext: { owner, arg1 in
-                let (items, loadingState) = arg1
-                switch loadingState {
-                case .pagination:
-                    owner.updateSnapshot(with: items, isLoading: true)
-                case .initial:
-                    owner.updateSnapshot(with: items, isLoading: false)
-                case .none:
-                    owner.updateSnapshot(with: items, isLoading: false)
-                    owner.refreshControl.endRefreshing()
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
+    func bindViewState() {
+        viewModel.outputs.state
+            .distinctUntilChanged()
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                with: self,
+                onNext: { owner, state in
+                    owner.updateSnapshot(
+                        with: state.items,
+                        isLoading: state.isLoading
+                    )
                 }
-            }
-        )
-        .disposed(by: disposeBag)
+            )
+            .disposed(by: disposeBag)
     }
     
     func bindSelection() {
@@ -172,11 +178,11 @@ private extension UserListViewController {
     
     func bindInfiniteScrolling() {
         collectionView.rx.didScroll
-            .withLatestFrom(viewModel.outputs.loadingState) { ($0, $1) }
+            .withLatestFrom(viewModel.outputs.state) { ($0, $1) }
             .withUnretained(self)
             .map { owner, args -> Bool in
-                let (_, loadingState) = args
-                guard loadingState == .none else { return false }
+                let (_, state) = args
+                guard !state.isLoading else { return false }
                 
                 let offsetY = owner.collectionView.contentOffset.y
                 let contentHeight = owner.collectionView.contentSize.height
@@ -191,38 +197,6 @@ private extension UserListViewController {
                 owner.viewModel.inputs.loadMore()
             })
             .disposed(by: disposeBag)
-    }
-    
-    func bindPullToRefresh() {
-        refreshControl.rx.controlEvent(.valueChanged)
-            .bind(
-                with: self,
-                onNext: { owner, _  in
-                    owner.viewModel.inputs.refresh()
-                }
-            )
-            .disposed(by: disposeBag)
-    }
-    
-    func bindErrors() {
-        viewModel.outputs.error
-            .observe(on: MainScheduler.instance)
-            .withUnretained(self)
-            .subscribe(onNext: { owner, error in
-                owner.showError(error)
-                owner.refreshControl.endRefreshing()
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    func showError(_ error: Error) {
-        let alert = UIAlertController(
-            title: "Error",
-            message: error.localizedDescription,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
     }
 }
 
