@@ -63,56 +63,9 @@ private extension UserDetailViewController {
     }
 
     func createCollectionViewLayout() -> UICollectionViewLayout {
-        UICollectionViewCompositionalLayout { [weak self] section, _ in
+        UICollectionViewCompositionalLayout { section, _ in
             guard let section = UserDetailSection(rawValue: section) else { return nil }
-            return self?.layoutSection(for: section)
-        }
-    }
-
-    func layoutSection(for section: UserDetailSection) -> NSCollectionLayoutSection {
-        switch section {
-        case .header:
-            let item = NSCollectionLayoutItem(layoutSize: .init(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(PADDING120)
-            ))
-            let group = NSCollectionLayoutGroup.vertical(
-                layoutSize: .init(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .estimated(PADDING100)
-                ),
-                subitems: [item]
-            )
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(
-                top: PADDING16,
-                leading: PADDING16,
-                bottom: PADDING16,
-                trailing: PADDING16
-            )
-            return section
-            
-        case .stats:
-            let item = NSCollectionLayoutItem(layoutSize: .init(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .estimated(PADDING80)
-            ))
-            let group = NSCollectionLayoutGroup.vertical(
-                layoutSize: item.layoutSize,
-                subitems: [item]
-            )
-            return NSCollectionLayoutSection(group: group)
-
-        case .blog:
-            let item = NSCollectionLayoutItem(layoutSize: .init(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .estimated(PADDING70)
-            ))
-            let group = NSCollectionLayoutGroup.vertical(
-                layoutSize: item.layoutSize,
-                subitems: [item]
-            )
-            return NSCollectionLayoutSection(group: group)
+            return section.layoutSection
         }
     }
 

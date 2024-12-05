@@ -10,9 +10,56 @@ import DesignSystem
 import Domain
 import Kingfisher
 
-enum UserCellType {
-    case userCell(UserCellItem)
-    case userHeaderCell(UserHeaderCellItem)
+// MARK: - Configuration Protocol
+protocol UserCellConfigurable {
+    var avatarUrl: String { get }
+    var name: String { get }
+    var url: String? { get }
+    var location: String? { get }
+}
+
+// MARK: - Configuration Implementations
+enum UserCellConfiguration {
+    case user(UserCellItem)
+    case header(UserHeaderCellItem)
+}
+
+extension UserCellConfiguration: UserCellConfigurable {
+    var avatarUrl: String {
+        switch self {
+        case .user(let item):
+            return item.avatarUrl
+        case .header(let item):
+            return item.avatarUrl
+        }
+    }
+    
+    var name: String {
+        switch self {
+        case .user(let item):
+            return item.login
+        case .header(let item):
+            return item.login
+        }
+    }
+    
+    var url: String? {
+        switch self {
+        case .user(let item):
+            return item.htmlUrl
+        case .header:
+            return nil
+        }
+    }
+    
+    var location: String? {
+        switch self {
+        case .user:
+            return nil
+        case .header(let item):
+            return item.location
+        }
+    }
 }
 
 final class UserCell: BaseCollectionViewCell {
@@ -100,31 +147,19 @@ final class UserCell: BaseCollectionViewCell {
         applyViewConfiguration()
     }
 
-    func configure(with type: UserCellType) {
-        switch type {
-        case .userCell(let item):
-            nameLabel.text = item.login
-            urlLabel.text = item.htmlUrl
+    func configure(with configuration: UserCellConfigurable) {
+        nameLabel.text = configuration.name
+        urlLabel.text = configuration.url
+        
+        if let url = URL(string: configuration.avatarUrl) {
+            avatarImageView.kf.setImage(with: url)
+        }
+        
+        if let location = configuration.location {
+            locationLabel.text = location
+            locationStackView.isHidden = false
+        } else {
             locationStackView.isHidden = true
-            
-            if let url = URL(string: item.avatarUrl) {
-                avatarImageView.kf.setImage(with: url)
-            }
-            
-        case .userHeaderCell(let item):
-            nameLabel.text = item.login
-            urlLabel.text = ""
-            
-            if let url = URL(string: item.avatarUrl) {
-                avatarImageView.kf.setImage(with: url)
-            }
-            
-            if let location = item.location {
-                locationLabel.text = location
-                locationStackView.isHidden = false
-            } else {
-                locationStackView.isHidden = true
-            }
         }
         
         DispatchQueue.main.async {

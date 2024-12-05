@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D4F47A2EDC593A0541E5A73 /* Pods_TymeX_TymeXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0F80CF723D45BB0226E6DB /* Pods_TymeX_TymeXUITests.framework */; };
 		3F8628202CFDC1CD009FDF94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86281F2CFDC1CD009FDF94 /* AppDelegate.swift */; };
 		3F8628222CFDC1CD009FDF94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8628212CFDC1CD009FDF94 /* SceneDelegate.swift */; };
 		3F8628292CFDC1CF009FDF94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8628282CFDC1CF009FDF94 /* Assets.xcassets */; };
@@ -15,9 +16,8 @@
 		3F8628412CFDC1CF009FDF94 /* TymeXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8628402CFDC1CF009FDF94 /* TymeXUITests.swift */; };
 		3F8628432CFDC1CF009FDF94 /* TymeXUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8628422CFDC1CF009FDF94 /* TymeXUITestsLaunchTests.swift */; };
 		3FFC9E792CFFF8E600A26935 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC9E782CFFF8E600A26935 /* AppCoordinator.swift */; };
-		65F7483DFC11D6C897837469 /* Pods_TymeX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26AEF0957AE4E7B67B6B4DBE /* Pods_TymeX.framework */; };
-		7D28C73F2324B4116155A019 /* Pods_TymeXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B42FF19224FA4D649DD18A37 /* Pods_TymeXTests.framework */; };
-		FCE4BB459135915320ACDD94 /* Pods_TymeX_TymeXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3B793DC6C733D152988509 /* Pods_TymeX_TymeXUITests.framework */; };
+		66C37900D628F36F7F7A3145 /* Pods_TymeXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177FEFDC4BC3ADFA30F87AAE /* Pods_TymeXTests.framework */; };
+		F9F3BC35B68BD69FC245E911 /* Pods_TymeX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928B40586AE3F77F2FBC6F76 /* Pods_TymeX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		26AEF0957AE4E7B67B6B4DBE /* Pods_TymeX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TymeX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		30020FBDD423152FEA52EE20 /* Pods-TymeX-TymeXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX-TymeXUITests.release.xcconfig"; path = "Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests.release.xcconfig"; sourceTree = "<group>"; };
+		00E775BA18C666F6F58DD108 /* Pods-TymeX-TymeXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX-TymeXUITests.release.xcconfig"; path = "Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0F7B62267F5D787688F86006 /* Pods-TymeX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX.release.xcconfig"; path = "Target Support Files/Pods-TymeX/Pods-TymeX.release.xcconfig"; sourceTree = "<group>"; };
+		177FEFDC4BC3ADFA30F87AAE /* Pods_TymeXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TymeXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CA8CA06464E1409901697AE /* Pods-TymeX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX.debug.xcconfig"; path = "Target Support Files/Pods-TymeX/Pods-TymeX.debug.xcconfig"; sourceTree = "<group>"; };
 		3F86281C2CFDC1CD009FDF94 /* TymeX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TymeX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F86281F2CFDC1CD009FDF94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F8628212CFDC1CD009FDF94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,13 +54,11 @@
 		3F8628402CFDC1CF009FDF94 /* TymeXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymeXUITests.swift; sourceTree = "<group>"; };
 		3F8628422CFDC1CF009FDF94 /* TymeXUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TymeXUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3FFC9E782CFFF8E600A26935 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		534F1CB7115FE9755BF4BE8E /* Pods-TymeXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeXTests.release.xcconfig"; path = "Target Support Files/Pods-TymeXTests/Pods-TymeXTests.release.xcconfig"; sourceTree = "<group>"; };
-		9456BC6674A5CD61350A8F1F /* Pods-TymeX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX.release.xcconfig"; path = "Target Support Files/Pods-TymeX/Pods-TymeX.release.xcconfig"; sourceTree = "<group>"; };
-		B1EA48E03B608C3859C44C7D /* Pods-TymeXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeXTests.debug.xcconfig"; path = "Target Support Files/Pods-TymeXTests/Pods-TymeXTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B42FF19224FA4D649DD18A37 /* Pods_TymeXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TymeXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC3B793DC6C733D152988509 /* Pods_TymeX_TymeXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TymeX_TymeXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFE9A474077B6D7B230C3123 /* Pods-TymeX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX.debug.xcconfig"; path = "Target Support Files/Pods-TymeX/Pods-TymeX.debug.xcconfig"; sourceTree = "<group>"; };
-		EE7A578AF49996E61C34FC42 /* Pods-TymeX-TymeXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX-TymeXUITests.debug.xcconfig"; path = "Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5D0F80CF723D45BB0226E6DB /* Pods_TymeX_TymeXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TymeX_TymeXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		928B40586AE3F77F2FBC6F76 /* Pods_TymeX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TymeX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4EAAA8BEF7E087FCBEDE7D8 /* Pods-TymeX-TymeXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeX-TymeXUITests.debug.xcconfig"; path = "Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C973D873E39A0E0E8D95D6AF /* Pods-TymeXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeXTests.release.xcconfig"; path = "Target Support Files/Pods-TymeXTests/Pods-TymeXTests.release.xcconfig"; sourceTree = "<group>"; };
+		F0CBFAB0FBC7A04FAE44A107 /* Pods-TymeXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TymeXTests.debug.xcconfig"; path = "Target Support Files/Pods-TymeXTests/Pods-TymeXTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F7483DFC11D6C897837469 /* Pods_TymeX.framework in Frameworks */,
+				F9F3BC35B68BD69FC245E911 /* Pods_TymeX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D28C73F2324B4116155A019 /* Pods_TymeXTests.framework in Frameworks */,
+				66C37900D628F36F7F7A3145 /* Pods_TymeXTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCE4BB459135915320ACDD94 /* Pods_TymeX_TymeXUITests.framework in Frameworks */,
+				1D4F47A2EDC593A0541E5A73 /* Pods_TymeX_TymeXUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,12 +92,12 @@
 		14838D7F910566B7712376A4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CFE9A474077B6D7B230C3123 /* Pods-TymeX.debug.xcconfig */,
-				9456BC6674A5CD61350A8F1F /* Pods-TymeX.release.xcconfig */,
-				EE7A578AF49996E61C34FC42 /* Pods-TymeX-TymeXUITests.debug.xcconfig */,
-				30020FBDD423152FEA52EE20 /* Pods-TymeX-TymeXUITests.release.xcconfig */,
-				B1EA48E03B608C3859C44C7D /* Pods-TymeXTests.debug.xcconfig */,
-				534F1CB7115FE9755BF4BE8E /* Pods-TymeXTests.release.xcconfig */,
+				1CA8CA06464E1409901697AE /* Pods-TymeX.debug.xcconfig */,
+				0F7B62267F5D787688F86006 /* Pods-TymeX.release.xcconfig */,
+				B4EAAA8BEF7E087FCBEDE7D8 /* Pods-TymeX-TymeXUITests.debug.xcconfig */,
+				00E775BA18C666F6F58DD108 /* Pods-TymeX-TymeXUITests.release.xcconfig */,
+				F0CBFAB0FBC7A04FAE44A107 /* Pods-TymeXTests.debug.xcconfig */,
+				C973D873E39A0E0E8D95D6AF /* Pods-TymeXTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -110,7 +110,7 @@
 				3F86283F2CFDC1CF009FDF94 /* TymeXUITests */,
 				3F86281D2CFDC1CD009FDF94 /* Products */,
 				14838D7F910566B7712376A4 /* Pods */,
-				B672B5216101246F8D4CF2FF /* Frameworks */,
+				E175699AA87BDFEE3D76A192 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,12 +154,12 @@
 			path = TymeXUITests;
 			sourceTree = "<group>";
 		};
-		B672B5216101246F8D4CF2FF /* Frameworks */ = {
+		E175699AA87BDFEE3D76A192 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				26AEF0957AE4E7B67B6B4DBE /* Pods_TymeX.framework */,
-				CC3B793DC6C733D152988509 /* Pods_TymeX_TymeXUITests.framework */,
-				B42FF19224FA4D649DD18A37 /* Pods_TymeXTests.framework */,
+				928B40586AE3F77F2FBC6F76 /* Pods_TymeX.framework */,
+				5D0F80CF723D45BB0226E6DB /* Pods_TymeX_TymeXUITests.framework */,
+				177FEFDC4BC3ADFA30F87AAE /* Pods_TymeXTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,11 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F8628462CFDC1CF009FDF94 /* Build configuration list for PBXNativeTarget "TymeX" */;
 			buildPhases = (
-				81F5279A1AC2F51905E9525B /* [CP] Check Pods Manifest.lock */,
+				38ED17378B716E660A1C1AA6 /* [CP] Check Pods Manifest.lock */,
 				3F8628182CFDC1CD009FDF94 /* Sources */,
 				3F8628192CFDC1CD009FDF94 /* Frameworks */,
 				3F86281A2CFDC1CD009FDF94 /* Resources */,
-				49C2B9EF5EA7E863664E8D93 /* [CP] Embed Pods Frameworks */,
+				A2A1FF1245E151E5501114FD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,7 +190,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F8628492CFDC1CF009FDF94 /* Build configuration list for PBXNativeTarget "TymeXTests" */;
 			buildPhases = (
-				8791346DB11E5B43FDAF63D5 /* [CP] Check Pods Manifest.lock */,
+				120D12983E2942A39B8C8974 /* [CP] Check Pods Manifest.lock */,
 				3F86282E2CFDC1CF009FDF94 /* Sources */,
 				3F86282F2CFDC1CF009FDF94 /* Frameworks */,
 				3F8628302CFDC1CF009FDF94 /* Resources */,
@@ -209,11 +209,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F86284C2CFDC1CF009FDF94 /* Build configuration list for PBXNativeTarget "TymeXUITests" */;
 			buildPhases = (
-				F5E379FAEE026F917593EE96 /* [CP] Check Pods Manifest.lock */,
+				33C20D25DA3DF70A8726A3DA /* [CP] Check Pods Manifest.lock */,
 				3F8628382CFDC1CF009FDF94 /* Sources */,
 				3F8628392CFDC1CF009FDF94 /* Frameworks */,
 				3F86283A2CFDC1CF009FDF94 /* Resources */,
-				A65DC354A1D1687E4B61B2E8 /* [CP] Embed Pods Frameworks */,
+				550A51E2EBD43C489B5EA193 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,46 +295,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49C2B9EF5EA7E863664E8D93 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TymeX/Pods-TymeX-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TymeX/Pods-TymeX-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TymeX/Pods-TymeX-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		81F5279A1AC2F51905E9525B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TymeX-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8791346DB11E5B43FDAF63D5 /* [CP] Check Pods Manifest.lock */ = {
+		120D12983E2942A39B8C8974 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -356,24 +317,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A65DC354A1D1687E4B61B2E8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F5E379FAEE026F917593EE96 /* [CP] Check Pods Manifest.lock */ = {
+		33C20D25DA3DF70A8726A3DA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -393,6 +337,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38ED17378B716E660A1C1AA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TymeX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		550A51E2EBD43C489B5EA193 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TymeX-TymeXUITests/Pods-TymeX-TymeXUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2A1FF1245E151E5501114FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TymeX/Pods-TymeX-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TymeX/Pods-TymeX-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TymeX/Pods-TymeX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -575,7 +575,7 @@
 		};
 		3F8628472CFDC1CF009FDF94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFE9A474077B6D7B230C3123 /* Pods-TymeX.debug.xcconfig */;
+			baseConfigurationReference = 1CA8CA06464E1409901697AE /* Pods-TymeX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -606,7 +606,7 @@
 		};
 		3F8628482CFDC1CF009FDF94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9456BC6674A5CD61350A8F1F /* Pods-TymeX.release.xcconfig */;
+			baseConfigurationReference = 0F7B62267F5D787688F86006 /* Pods-TymeX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -637,7 +637,7 @@
 		};
 		3F86284A2CFDC1CF009FDF94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1EA48E03B608C3859C44C7D /* Pods-TymeXTests.debug.xcconfig */;
+			baseConfigurationReference = F0CBFAB0FBC7A04FAE44A107 /* Pods-TymeXTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -658,7 +658,7 @@
 		};
 		3F86284B2CFDC1CF009FDF94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 534F1CB7115FE9755BF4BE8E /* Pods-TymeXTests.release.xcconfig */;
+			baseConfigurationReference = C973D873E39A0E0E8D95D6AF /* Pods-TymeXTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -679,7 +679,7 @@
 		};
 		3F86284D2CFDC1CF009FDF94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE7A578AF49996E61C34FC42 /* Pods-TymeX-TymeXUITests.debug.xcconfig */;
+			baseConfigurationReference = B4EAAA8BEF7E087FCBEDE7D8 /* Pods-TymeX-TymeXUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -698,7 +698,7 @@
 		};
 		3F86284E2CFDC1CF009FDF94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30020FBDD423152FEA52EE20 /* Pods-TymeX-TymeXUITests.release.xcconfig */;
+			baseConfigurationReference = 00E775BA18C666F6F58DD108 /* Pods-TymeX-TymeXUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -41,8 +41,10 @@ public final class UserCoordinator: NavigationCoordinator {
             return true
         }
     }
+}
 
-    private func makeUserListViewController() -> UIViewController {
+private extension UserCoordinator {
+    func makeUserListViewController() -> UIViewController {
         let viewModel = UserListViewModel()
         let viewcontroler = UserListViewController(
             viewModel: viewModel,
@@ -53,7 +55,7 @@ public final class UserCoordinator: NavigationCoordinator {
         return viewcontroler
     }
 
-    private func makeUserDetailViewController(username: String) -> UIViewController {
+    func makeUserDetailViewController(username: String) -> UIViewController {
         let viewModel = UserDetailViewModel(username: username)
         return UserDetailViewController(viewModel: viewModel)
     }

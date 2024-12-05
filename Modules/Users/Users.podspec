@@ -32,7 +32,7 @@ TODO: Add long description of the pod here.
   s.source_files = 'Sources/Users/**/*'
 
   s.resource_bundles = {
-    'Users' => ['Sources/Users/**/*']
+    'Users' => ['Sources/Users/Resources/**/*.{xcassets,strings}']
   }
   
   s.dependency 'Domain'
@@ -50,9 +50,5 @@ TODO: Add long description of the pod here.
     test_spec.frameworks = 'XCTest'
     test_spec.dependency 'SnapshotTesting'
     test_spec.dependency 'RxTest'
-    
-    test_spec.resource_bundles = {
-      'UsersTests' => ['Sources/Users/Resources/**/*.{json,webp,png,jpg}']
-    }
   end
 end

@@ -7,6 +7,7 @@
 
 import Domain
 import AppShared
+import DesignSystem
 
 enum UserListSection: Int, CaseIterable {
     case users
@@ -21,7 +22,7 @@ enum UserListSectionItem: Hashable {
         switch self {
         case .user(let user):
             let cell: UserCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.configure(with: .userCell(user))
+            cell.configure(with: UserCellConfiguration.user(user))
             return cell
             
         case .loader:
@@ -30,11 +31,13 @@ enum UserListSectionItem: Hashable {
             return cell
         }
     }
-    
-    func createCollectionViewLayout() -> UICollectionViewLayout {
+}
+
+extension UserListSection {
+    var layoutSection: NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(88)
+            heightDimension: .absolute(PADDING120)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
@@ -46,13 +49,13 @@ enum UserListSectionItem: Hashable {
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: 16,
-            bottom: 16,
+            leading: PADDING16,
+            bottom: PADDING16,
             trailing: 16
         )
-        section.interGroupSpacing = 8
+        section.interGroupSpacing = PADDING8
         
-        return UICollectionViewCompositionalLayout(section: section)
+        return section
     }
 }
 

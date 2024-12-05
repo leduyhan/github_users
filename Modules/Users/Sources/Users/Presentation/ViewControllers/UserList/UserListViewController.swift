@@ -72,29 +72,12 @@ private extension UserListViewController {
     }
     
     func createCollectionViewLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(PADDING120)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: itemSize,
-            subitems: [item]
-        )
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: PADDING16,
-            bottom: PADDING16,
-            trailing: 16
-        )
-        section.interGroupSpacing = PADDING8
-        
-        return UICollectionViewCompositionalLayout(section: section)
+        UICollectionViewCompositionalLayout { section, _ in
+            guard let section = UserListSection(rawValue: section) else { return nil }
+            return section.layoutSection
+        }
     }
-    
+
     func createDataSource(collectionView: UICollectionView) -> UserListDataSource {
         let cellProvider: UserListCellProvider = { collectionView, indexPath, item in
             return item.cellProvider(collectionView: collectionView, indexPath: indexPath)
