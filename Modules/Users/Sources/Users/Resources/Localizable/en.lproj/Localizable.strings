@@ -1,2 +1,5 @@
-"network_service_text_new"="New";
-"han_le"="suasiuabsiua";
+"text_user_detail_title" = "User Details";
+"text_users_title" = "Github Users";
+"text_blog" = "Blog";
+"text_follower" = "Follower";
+"text_following" = "Following";

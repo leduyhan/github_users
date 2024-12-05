@@ -67,7 +67,7 @@ private extension UserListViewController {
     func createCollectionViewLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(120)
+            heightDimension: .absolute(PADDING120)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
@@ -79,11 +79,11 @@ private extension UserListViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: 16,
-            bottom: 16,
+            leading: PADDING16,
+            bottom: PADDING16,
             trailing: 16
         )
-        section.interGroupSpacing = 8
+        section.interGroupSpacing = PADDING8
         
         return UICollectionViewCompositionalLayout(section: section)
     }
@@ -130,16 +130,6 @@ private extension UserListViewController {
                 owner.showError(error)
             })
             .disposed(by: disposeBag)
-    }
-    
-    func showError(_ error: Error) {
-        let alert = UIAlertController(
-            title: "Error",
-            message: error.localizedDescription,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
     }
     
     func bindViewState() {
@@ -189,7 +179,7 @@ private extension UserListViewController {
                 let contentHeight = owner.collectionView.contentSize.height
                 let frameHeight = owner.collectionView.frame.height
                 
-                return offsetY > contentHeight - frameHeight - 20
+                return offsetY > contentHeight - frameHeight - PADDING20
             }
             .distinctUntilChanged()
             .filter { $0 }
@@ -215,6 +205,6 @@ extension UserListViewController: BaseViewConfiguration {
     }
     
     func setupStyles() {
-        title = "Github Users"
+        title = L10n.textUsersTitle
     }
 }

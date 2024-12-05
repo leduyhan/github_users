@@ -74,23 +74,28 @@ private extension UserDetailViewController {
         case .header:
             let item = NSCollectionLayoutItem(layoutSize: .init(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(120)
+                heightDimension: .absolute(PADDING120)
             ))
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: .init(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .estimated(100)
+                    heightDimension: .estimated(PADDING100)
                 ),
                 subitems: [item]
             )
             let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+            section.contentInsets = NSDirectionalEdgeInsets(
+                top: PADDING16,
+                leading: PADDING16,
+                bottom: PADDING16,
+                trailing: PADDING16
+            )
             return section
             
         case .stats:
             let item = NSCollectionLayoutItem(layoutSize: .init(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .estimated(80)
+                heightDimension: .estimated(PADDING80)
             ))
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: item.layoutSize,
@@ -101,7 +106,7 @@ private extension UserDetailViewController {
         case .blog:
             let item = NSCollectionLayoutItem(layoutSize: .init(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .estimated(70)
+                heightDimension: .estimated(PADDING70)
             ))
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: item.layoutSize,
@@ -162,7 +167,8 @@ extension UserDetailViewController: BaseViewConfiguration {
     }
 
     func setupStyles() {
-        title = "User Details"
+        title = L10n.textUserDetailTitle
         view.backgroundColor = .systemGray6
     }
 }
+

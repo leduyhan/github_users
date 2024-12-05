@@ -20,4 +20,8 @@ target 'TymeX' do
   target 'TymeXUITests' do
     # Pods for testing
   end
+
+  post_install do |installer|
+    system("./swiftgen-runner.sh")
+  end
 end

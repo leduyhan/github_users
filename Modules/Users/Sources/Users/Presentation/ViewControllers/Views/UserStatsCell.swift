@@ -26,12 +26,12 @@ final class UserStatsCell: BaseCollectionViewCell {
         let followerView = createStatsView(
             icon: "person.2",
             count: item.followers,
-            title: "Follower"
+            title: L10n.textFollower
         )
         let followingView = createStatsView(
             icon: "person.badge.plus",
             count: item.following,
-            title: "Following"
+            title: L10n.textFollowing
         )
         [
             followerView,
@@ -64,19 +64,19 @@ final class UserStatsCell: BaseCollectionViewCell {
         
         iconView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(12)
-            $0.size.equalTo(24)
+            $0.top.equalToSuperview().offset(PADDING12)
+            $0.size.equalTo(PADDING24)
         }
         
         countLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(iconView.snp.bottom).offset(4)
+            $0.top.equalTo(iconView.snp.bottom).offset(PADDING4)
         }
         
         titleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(countLabel.snp.bottom).offset(2)
-            $0.bottom.equalToSuperview().inset(12)
+            $0.top.equalTo(countLabel.snp.bottom).offset(PADDING2)
+            $0.bottom.equalToSuperview().inset(PADDING12)
         }
         
         return container
@@ -90,7 +90,12 @@ extension UserStatsCell: BaseViewConfiguration {
     
     func setupConstraints() {
         statsStackView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 40, bottom: 8, right: 40))
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(
+                top: 0,
+                left: PADDING40,
+                bottom: PADDING8,
+                right: PADDING40
+            ))
         }
     }
 }

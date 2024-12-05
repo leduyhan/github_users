@@ -10,10 +10,16 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
-  /// suasiuabsiua
-  internal static let hanLe = L10n.tr("Localizable", "han_le", fallback: "suasiuabsiua")
-  /// New
-  internal static let networkServiceTextNew = L10n.tr("Localizable", "network_service_text_new", fallback: "New")
+  /// Blog
+  internal static let textBlog = L10n.tr("Localizable", "text_blog", fallback: "Blog")
+  /// Follower
+  internal static let textFollower = L10n.tr("Localizable", "text_follower", fallback: "Follower")
+  /// Following
+  internal static let textFollowing = L10n.tr("Localizable", "text_following", fallback: "Following")
+  /// User Details
+  internal static let textUserDetailTitle = L10n.tr("Localizable", "text_user_detail_title", fallback: "User Details")
+  /// Github Users
+  internal static let textUsersTitle = L10n.tr("Localizable", "text_users_title", fallback: "Github Users")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

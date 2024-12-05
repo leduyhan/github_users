@@ -21,10 +21,10 @@ final class UserCell: BaseCollectionViewCell {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = Design.Colors.white500
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = PADDING16
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 1)
-        view.layer.shadowRadius = 4
+        view.layer.shadowOffset = CGSize(width: 0, height: PADDING1)
+        view.layer.shadowRadius = PADDING4
         view.layer.shadowOpacity = 0.1
         return view
     }()
@@ -32,7 +32,7 @@ final class UserCell: BaseCollectionViewCell {
     private lazy var avatarContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = Design.Colors.gray400
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = PADDING16
         view.clipsToBounds = true
         return view
     }()
@@ -69,14 +69,14 @@ final class UserCell: BaseCollectionViewCell {
     private lazy var infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = PADDING8
         return stackView
     }()
 
     private lazy var locationStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 4
+        stackView.spacing = PADDING4
         return stackView
     }()
 
@@ -166,30 +166,30 @@ extension UserCell: BaseViewConfiguration {
 
     func setupConstraints() {
         containerView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0))
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: PADDING4, left: 0, bottom: PADDING4, right: 0))
         }
 
         avatarContainerView.snp.makeConstraints {
-            $0.left.top.bottom.equalToSuperview().inset(8)
+            $0.left.top.bottom.equalToSuperview().inset(PADDING8)
             $0.width.equalTo(avatarContainerView.snp.height)
         }
 
         avatarImageView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(4)
+            $0.edges.equalToSuperview().inset(PADDING4)
         }
 
         infoStackView.snp.makeConstraints {
-            $0.left.equalTo(avatarContainerView.snp.right).offset(16)
-            $0.top.equalTo(avatarContainerView).offset(2)
-            $0.right.equalToSuperview().offset(-16)
+            $0.left.equalTo(avatarContainerView.snp.right).offset(PADDING16)
+            $0.top.equalTo(avatarContainerView).offset(PADDING2)
+            $0.right.equalToSuperview().offset(-PADDING16)
         }
 
         locationIcon.snp.makeConstraints {
-            $0.size.equalTo(16)
+            $0.size.equalTo(PADDING16)
         }
 
         separatorLine.snp.makeConstraints {
-            $0.height.equalTo(1)
+            $0.height.equalTo(PADDING1)
         }
     }
 

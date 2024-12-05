@@ -12,7 +12,7 @@ final class UserBlogCell: BaseCollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = Design.Typography.semibold16
-        label.text = "Blog"
+        label.text = L10n.textBlog
         return label
     }()
     
@@ -40,12 +40,12 @@ extension UserBlogCell: BaseViewConfiguration {
     
     func setupConstraints() {
         titleLabel.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview().inset(16)
+            $0.top.leading.trailing.equalToSuperview().inset(PADDING16)
         }
         
         blogLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
-            $0.leading.trailing.bottom.equalToSuperview().inset(16)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(PADDING8)
+            $0.leading.trailing.bottom.equalToSuperview().inset(PADDING16)
         }
     }
 }
