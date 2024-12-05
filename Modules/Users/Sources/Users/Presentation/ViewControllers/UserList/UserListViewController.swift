@@ -124,7 +124,7 @@ private extension UserListViewController {
     
     func bindError() {
         viewModel.outputs.error
-            .observe(on: MainScheduler.instance)
+            .observe(on: MainScheduler.asyncInstance)
             .withUnretained(self)
             .subscribe(onNext: { owner, error in
                 owner.showError(error)
@@ -145,7 +145,7 @@ private extension UserListViewController {
     func bindViewState() {
         viewModel.outputs.state
             .distinctUntilChanged()
-            .observe(on: MainScheduler.instance)
+            .observe(on: MainScheduler.asyncInstance)
             .subscribe(
                 with: self,
                 onNext: { owner, state in
