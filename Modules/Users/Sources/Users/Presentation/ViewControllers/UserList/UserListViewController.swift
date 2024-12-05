@@ -9,6 +9,7 @@ import RxCocoa
 import RxSwift
 import SnapKit
 import AppShared
+import DesignSystem
 
 typealias UserListCellProvider = (UICollectionView, IndexPath, UserListSectionItem) -> UICollectionViewCell?
 typealias UserListDataSource = UICollectionViewDiffableDataSource<UserListSection, UserListSectionItem>
@@ -26,7 +27,7 @@ final class UserListViewController: UIViewController {
         )
         collectionView.register(cellType: UserCell.self)
         collectionView.register(cellType: LoaderCell.self)
-        collectionView.backgroundColor = .systemGray6
+        collectionView.backgroundColor = Design.Colors.white500
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()

@@ -8,6 +8,7 @@
 import AppShared
 import Domain
 import RxSwift
+import DesignSystem
 
 typealias UserDetailCellProvider = (UICollectionView, IndexPath, UserDetailSectionItem) -> UICollectionViewCell?
 typealias UserDetailDataSource = UICollectionViewDiffableDataSource<UserDetailSection, UserDetailSectionItem>
@@ -26,7 +27,7 @@ final class UserDetailViewController: UIViewController {
         collectionView.register(cellType: UserCell.self)
         collectionView.register(cellType: UserStatsCell.self)
         collectionView.register(cellType: UserBlogCell.self)
-        collectionView.backgroundColor = .systemGray6
+        collectionView.backgroundColor = Design.Colors.white500
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()

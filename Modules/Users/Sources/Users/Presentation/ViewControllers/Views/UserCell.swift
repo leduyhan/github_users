@@ -25,7 +25,7 @@ final class UserCell: BaseCollectionViewCell {
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 1)
         view.layer.shadowRadius = 4
-        view.layer.shadowOpacity = 0.05
+        view.layer.shadowOpacity = 0.1
         return view
     }()
 
@@ -170,7 +170,7 @@ extension UserCell: BaseViewConfiguration {
         }
 
         avatarContainerView.snp.makeConstraints {
-            $0.left.top.bottom.equalToSuperview().inset(16)
+            $0.left.top.bottom.equalToSuperview().inset(8)
             $0.width.equalTo(avatarContainerView.snp.height)
         }
 
