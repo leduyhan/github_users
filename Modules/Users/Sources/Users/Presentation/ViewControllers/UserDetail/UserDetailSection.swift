@@ -22,8 +22,8 @@ enum UserDetailSectionItem: Hashable {
     func cellProvider(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         switch self {
         case .header(let item):
-            let cell: UserHeaderCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.configure(with: item)
+            let cell: UserCell = collectionView.dequeueReusableCell(for: indexPath)
+            cell.configure(with: .userHeaderCell(item))
             return cell
             
         case .stats(let item):

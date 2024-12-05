@@ -6,21 +6,34 @@
 //
 
 import AppShared
+import DesignSystem
 import Domain
 import Kingfisher
-import DesignSystem
+
+enum UserCellType {
+    case userCell(UserCellItem)
+    case userHeaderCell(UserHeaderCellItem)
+}
 
 final class UserCell: BaseCollectionViewCell {
-    
     // MARK: - UI Components
+
     private lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = Design.Colors.white500
-        view.layer.cornerRadius = 12
-        view.layer.shadowColor = Design.Colors.white500?.withAlphaComponent(0.1).cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 2)
-        view.layer.shadowRadius = 8
-        view.layer.shadowOpacity = 1
+        view.layer.cornerRadius = 16
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 1)
+        view.layer.shadowRadius = 4
+        view.layer.shadowOpacity = 0.05
+        return view
+    }()
+
+    private lazy var avatarContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Design.Colors.gray400
+        view.layer.cornerRadius = 16
+        view.clipsToBounds = true
         return view
     }()
 
@@ -28,22 +41,56 @@ final class UserCell: BaseCollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 25
         imageView.backgroundColor = Design.Colors.gray400
         return imageView
     }()
 
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = Design.Typography.semibold14
+        label.font = Design.Typography.semibold16
         label.textColor = Design.Colors.black500
         return label
+    }()
+
+    private lazy var separatorLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = Design.Colors.gray400
+        return view
     }()
 
     private lazy var urlLabel: UILabel = {
         let label = UILabel()
         label.font = Design.Typography.regular14
-        label.textColor = .systemBlue
+        label.textColor = Design.Colors.blue
+        label.alpha = 0.8
+        return label
+    }()
+
+    private lazy var infoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        return stackView
+    }()
+
+    private lazy var locationStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 4
+        return stackView
+    }()
+
+    private lazy var locationIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "location")
+        imageView.tintColor = Design.Colors.gray
+        return imageView
+    }()
+
+    private lazy var locationLabel: UILabel = {
+        let label = UILabel()
+        label.font = Design.Typography.regular14
+        label.textColor = Design.Colors.gray
         return label
     }()
 
@@ -53,17 +100,36 @@ final class UserCell: BaseCollectionViewCell {
         applyViewConfiguration()
     }
 
-    func configure(with item: UserCellItem) {
-        nameLabel.text = item.login
-        urlLabel.text = item.htmlUrl
-
-        if let url = URL(string: item.avatarUrl) {
-            avatarImageView.kf.setImage(with: url)
+    func configure(with type: UserCellType) {
+        switch type {
+        case .userCell(let item):
+            nameLabel.text = item.login
+            urlLabel.text = item.htmlUrl
+            locationStackView.isHidden = true
+            
+            if let url = URL(string: item.avatarUrl) {
+                avatarImageView.kf.setImage(with: url)
+            }
+            
+        case .userHeaderCell(let item):
+            nameLabel.text = item.login
+            urlLabel.text = ""
+            
+            if let url = URL(string: item.avatarUrl) {
+                avatarImageView.kf.setImage(with: url)
+            }
+            
+            if let location = item.location {
+                locationLabel.text = location
+                locationStackView.isHidden = false
+            } else {
+                locationStackView.isHidden = true
+            }
         }
-    }
-
-    func configure(with user: User) {
-        configure(with: UserCellItem(from: user))
+        
+        DispatchQueue.main.async {
+            self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.height / 2
+        }
     }
 }
 
@@ -76,33 +142,54 @@ extension UserCell: BaseViewConfiguration {
 
         contentView.addSubview(containerView)
         containerView.addSubviews([
-            avatarImageView,
-            nameLabel,
-            urlLabel,
+            avatarContainerView,
+            infoStackView,
         ])
+
+        [
+            locationIcon,
+            locationLabel,
+        ].forEach {
+            locationStackView.addArrangedSubview($0)
+        }
+
+        [
+            nameLabel,
+            separatorLine,
+            locationStackView,
+            urlLabel
+        ].forEach {
+            infoStackView.addArrangedSubview($0)
+        }
+        avatarContainerView.addSubview(avatarImageView)
     }
 
     func setupConstraints() {
         containerView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0))
+        }
+
+        avatarContainerView.snp.makeConstraints {
+            $0.left.top.bottom.equalToSuperview().inset(16)
+            $0.width.equalTo(avatarContainerView.snp.height)
         }
 
         avatarImageView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(16)
-            $0.centerY.equalToSuperview()
-            $0.size.equalTo(50)
+            $0.edges.equalToSuperview().inset(4)
         }
 
-        nameLabel.snp.makeConstraints {
-            $0.top.equalTo(avatarImageView)
-            $0.left.equalTo(avatarImageView.snp.right).offset(12)
+        infoStackView.snp.makeConstraints {
+            $0.left.equalTo(avatarContainerView.snp.right).offset(16)
+            $0.top.equalTo(avatarContainerView).offset(2)
             $0.right.equalToSuperview().offset(-16)
         }
 
-        urlLabel.snp.makeConstraints {
-            $0.top.equalTo(nameLabel.snp.bottom).offset(4)
-            $0.left.equalTo(nameLabel)
-            $0.right.equalTo(nameLabel)
+        locationIcon.snp.makeConstraints {
+            $0.size.equalTo(16)
+        }
+
+        separatorLine.snp.makeConstraints {
+            $0.height.equalTo(1)
         }
     }
 

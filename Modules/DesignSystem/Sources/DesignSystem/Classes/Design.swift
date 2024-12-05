@@ -5,6 +5,7 @@ public enum Design {
         public static let black500 = UIColor(hex: "000000")
         public static let white500 = UIColor(hex: "FFFFFF")
         public static let gray400 = UIColor(hex: "E5E5E5")
+        public static let gray = UIColor.gray
         public static let blue = UIColor(hex: "0000FF")
     }
     

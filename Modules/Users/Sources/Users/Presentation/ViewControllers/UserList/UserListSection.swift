@@ -21,7 +21,7 @@ enum UserListSectionItem: Hashable {
         switch self {
         case .user(let user):
             let cell: UserCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.configure(with: user)
+            cell.configure(with: .userCell(user))
             return cell
             
         case .loader:

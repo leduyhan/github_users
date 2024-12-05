@@ -23,7 +23,7 @@ final class UserDetailViewController: UIViewController {
             frame: .zero,
             collectionViewLayout: UICollectionViewLayout()
         )
-        collectionView.register(cellType: UserHeaderCell.self)
+        collectionView.register(cellType: UserCell.self)
         collectionView.register(cellType: UserStatsCell.self)
         collectionView.register(cellType: UserBlogCell.self)
         collectionView.backgroundColor = .systemGray6
@@ -73,7 +73,7 @@ private extension UserDetailViewController {
         case .header:
             let item = NSCollectionLayoutItem(layoutSize: .init(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .estimated(100)
+                heightDimension: .absolute(120)
             ))
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: .init(
@@ -82,8 +82,10 @@ private extension UserDetailViewController {
                 ),
                 subitems: [item]
             )
-            return NSCollectionLayoutSection(group: group)
-
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+            return section
+            
         case .stats:
             let item = NSCollectionLayoutItem(layoutSize: .init(
                 widthDimension: .fractionalWidth(1),
