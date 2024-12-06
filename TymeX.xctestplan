@@ -1,0 +1,42 @@
+{
+  "configurations" : [
+    {
+      "id" : "06B74544-BF7A-4706-961A-68976FF15005",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TymeX.xcodeproj",
+      "identifier" : "3F86281B2CFDC1CD009FDF94",
+      "name" : "TymeX"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Pods\/Pods.xcodeproj",
+        "identifier" : "1FF48881CDFB464802959EEE9E5ED864",
+        "name" : "LocalStorage-Unit-LocalStorageTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Pods\/Pods.xcodeproj",
+        "identifier" : "8A728C86A5CFACDEBFA48EEB012053A3",
+        "name" : "NetworkService-Unit-NetworkServiceTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Pods\/Pods.xcodeproj",
+        "identifier" : "24BA56978F870B8F8D360D5D2FE378AC",
+        "name" : "Users-Unit-UsersTests"
+      }
+    }
+  ],
+  "version" : 1
+}

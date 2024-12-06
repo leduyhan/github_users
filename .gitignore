@@ -1,6 +1,5 @@
 # CocoaPods
 Pods/
-*.xcworkspace
 
 # macOS
 .DS_Store
