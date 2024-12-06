@@ -146,6 +146,11 @@ final class UserCell: BaseCollectionViewCell {
     override func configurationLayout() {
         applyViewConfiguration()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.height / 2
+    }
 
     func configure(with configuration: UserCellConfigurable) {
         nameLabel.text = configuration.name

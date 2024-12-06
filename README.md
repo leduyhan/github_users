@@ -8,7 +8,7 @@ This project implements a modular clean architecture combined with Clean Archite
 
 ### Requirements
 - iOS 13.0+
-- Xcode 14+
+- Xcode 15+
 - CocoaPods
 
 ## 📦 Module Structure
