@@ -92,21 +92,19 @@ private extension UserDetailViewModel {
             .flatMapLatest { [useCase, username] in
                 useCase.execute(username: username)
                     .asObservable()
-                    .catch { [weak self] error in
-                        self?.errorRelay.accept(error)
-                        return .empty()
-                    }
+                    .materialize()
             }
             .observe(on: MainScheduler.asyncInstance)
-            .subscribe(
-                with: self,
-                onNext: { owner, user in
+            .subscribe(with: self, onNext: { owner, event in
+                switch event {
+                case .next(let user):
                     owner.userRelay.accept(user)
-                },
-                onError: { owner, error in
+                case .error(let error):
                     owner.errorRelay.accept(error)
+                case .completed:
+                    break
                 }
-            )
+            })
             .disposed(by: disposeBag)
     }
 }
