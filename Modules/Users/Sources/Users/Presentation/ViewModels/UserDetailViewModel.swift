@@ -14,10 +14,12 @@ import Data
 
 protocol UserDetailViewModelInputs {
     func viewDidLoad()
+    func refresh()
 }
 
 protocol UserDetailViewModelOutputs {
     var user: Observable<UserDetail> { get }
+    var error: Observable<Error> { get }
 }
 
 protocol UserDetailViewModelType {
@@ -34,11 +36,13 @@ final class UserDetailViewModel {
     private let disposeBag = DisposeBag()
     private let username: String
     
-    // MARK: - Streams
+    // MARK: - State
     
     private let viewDidLoadRelay = PublishRelay<Void>()
+    private let refreshRelay = PublishRelay<Void>()
     private let userRelay = BehaviorRelay<UserDetail?>(value: nil)
-    
+    private let errorRelay = PublishRelay<Error>()
+
     init(
         username: String,
         useCase: FetchUserDetailUseCase = DefaultFetchUserDetailUseCase(repository: DefaultUserRepository())
@@ -62,27 +66,45 @@ extension UserDetailViewModel: UserDetailViewModelInputs {
     func viewDidLoad() {
         viewDidLoadRelay.accept(())
     }
+    
+    func refresh() {
+        refreshRelay.accept(())
+    }
 }
 
 // MARK: - UserDetailViewModelOutputs
 
 extension UserDetailViewModel: UserDetailViewModelOutputs {
     var user: Observable<UserDetail> { userRelay.compactMap { $0 } }
+    var error: Observable<Error> { errorRelay.asObservable() }
 }
 
 // MARK: - Private Methods
 
 private extension UserDetailViewModel {
     func setupBindings() {
-        viewDidLoadRelay
+        let fetchTrigger = Observable.merge(
+            viewDidLoadRelay.asObservable(),
+            refreshRelay.asObservable()
+        )
+
+        fetchTrigger
             .flatMapLatest { [useCase, username] in
-                useCase.execute(username: username).asObservable()
+                useCase.execute(username: username)
+                    .asObservable()
+                    .catch { [weak self] error in
+                        self?.errorRelay.accept(error)
+                        return .empty()
+                    }
             }
             .observe(on: MainScheduler.asyncInstance)
             .subscribe(
                 with: self,
                 onNext: { owner, user in
                     owner.userRelay.accept(user)
+                },
+                onError: { owner, error in
+                    owner.errorRelay.accept(error)
                 }
             )
             .disposed(by: disposeBag)

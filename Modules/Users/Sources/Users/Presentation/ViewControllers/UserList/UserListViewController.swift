@@ -99,7 +99,7 @@ private extension UserListViewController {
             snapshot.appendItems([.loader], toSection: .loader)
         }
         
-        dataSource?.apply(snapshot, animatingDifferences: true)
+        dataSource?.apply(snapshot, animatingDifferences: false)
     }
 }
 
@@ -181,23 +181,17 @@ private extension UserListViewController {
     }
     
     func bindInfiniteScrolling() {
-        collectionView.rx.didScroll
+        collectionView.rx.willDisplayCell
             .withLatestFrom(viewModel.outputs.state) { ($0, $1) }
             .withUnretained(self)
-            .map { owner, args -> Bool in
-                let (_, state) = args
+            .filter { owner, args in
+                let ((_, indexPath), state) = args
                 guard !state.isLoading else { return false }
-                
-                let offsetY = owner.collectionView.contentOffset.y
-                let contentHeight = owner.collectionView.contentSize.height
-                let frameHeight = owner.collectionView.frame.height
-                
-                return offsetY > contentHeight - frameHeight - PADDING20
+                return owner.collectionView.isLastVisibleCell(at: indexPath)
             }
-            .distinctUntilChanged()
-            .filter { $0 }
+            .debounce(.milliseconds(100), scheduler: MainScheduler.instance)
             .withUnretained(self)
-            .bind(onNext: { owner, _ in
+            .subscribe(onNext: { owner, _ in
                 owner.viewModel.inputs.loadMore()
             })
             .disposed(by: disposeBag)
@@ -219,5 +213,22 @@ extension UserListViewController: BaseViewConfiguration {
     
     func setupStyles() {
         title = L10n.textUsersTitle
+    }
+}
+
+extension UICollectionView {
+    func isLastVisibleCell(at indexPath: IndexPath) -> Bool {
+        guard let lastIndexPath = lastIndexPath else { return false }
+        return indexPath == lastIndexPath
+    }
+    
+    private var lastIndexPath: IndexPath? {
+        let section = numberOfSections - 1
+        guard section >= 0 else { return nil }
+        
+        let item = numberOfItems(inSection: section) - 1
+        guard item >= 0 else { return nil }
+        
+        return IndexPath(item: item, section: section)
     }
 }

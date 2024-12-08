@@ -29,8 +29,15 @@ final class UserDetailViewController: UIViewController {
         collectionView.register(cellType: UserBlogCell.self)
         collectionView.backgroundColor = Design.Colors.white500
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.refreshControl = refreshControl
         return collectionView
     }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+         let control = UIRefreshControl()
+         control.tintColor = Design.Colors.gray
+         return control
+     }()
 
     init(viewModel: UserDetailViewModelType) {
         self.viewModel = viewModel
@@ -100,8 +107,31 @@ private extension UserDetailViewController {
                 with: self,
                 onNext: { owner, user in
                     owner.updateSnapshot(with: user)
+                    owner.refreshControl.endRefreshing()
                 }
             )
+            .disposed(by: disposeBag)
+        bindRefreshControl()
+        bindError()
+    }
+    
+    func bindRefreshControl() {
+        refreshControl.rx.controlEvent(.valueChanged)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.viewModel.inputs.refresh()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func bindError() {
+        viewModel.outputs.error
+            .observe(on: MainScheduler.asyncInstance)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, error in
+                owner.showError(error.localizedDescription)
+                owner.refreshControl.endRefreshing()
+            })
             .disposed(by: disposeBag)
     }
 }

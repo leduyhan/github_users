@@ -89,6 +89,7 @@ final class UserCell: BaseCollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.backgroundColor = Design.Colors.gray400
+        imageView.layer.cornerRadius = PADDING88/2
         return imageView
     }()
 
@@ -146,11 +147,6 @@ final class UserCell: BaseCollectionViewCell {
     override func configurationLayout() {
         applyViewConfiguration()
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        avatarImageView.layer.cornerRadius = avatarImageView.frame.height / 2
-    }
 
     func configure(with configuration: UserCellConfigurable) {
         nameLabel.text = configuration.name
@@ -165,10 +161,6 @@ final class UserCell: BaseCollectionViewCell {
             locationStackView.isHidden = false
         } else {
             locationStackView.isHidden = true
-        }
-        
-        DispatchQueue.main.async {
-            self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.height / 2
         }
     }
 }
@@ -206,7 +198,14 @@ extension UserCell: BaseViewConfiguration {
 
     func setupConstraints() {
         containerView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: PADDING4, left: 0, bottom: PADDING4, right: 0))
+            $0.edges.equalToSuperview().inset(
+                UIEdgeInsets(
+                    top: PADDING4,
+                    left: 0,
+                    bottom: PADDING4,
+                    right: 0
+                )
+            )
         }
 
         avatarContainerView.snp.makeConstraints {

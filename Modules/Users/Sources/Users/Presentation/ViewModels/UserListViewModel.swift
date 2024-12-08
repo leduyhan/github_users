@@ -125,11 +125,12 @@ private extension UserListViewModel {
         useCase.execute(since: since, perPage: Constants.perPage)
             .observe(on: MainScheduler.instance)
             .subscribe(
-                onNext: { [weak self] users in
-                    self?.handleSuccess(users: users, isInitialLoad: isInitialLoad)
+                with: self,
+                onNext: { owner, users in
+                    owner.handleSuccess(users: users, isInitialLoad: isInitialLoad)
                 },
-                onError: { [weak self] error in
-                    self?.handleError(error)
+                onError: { owner, error in
+                    owner.handleError(error)
                 }
             )
             .disposed(by: disposeBag)

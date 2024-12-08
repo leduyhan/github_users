@@ -51,7 +51,7 @@ extension UserListSection {
             top: 0,
             leading: PADDING16,
             bottom: PADDING16,
-            trailing: 16
+            trailing: PADDING16
         )
         section.interGroupSpacing = PADDING8
         
