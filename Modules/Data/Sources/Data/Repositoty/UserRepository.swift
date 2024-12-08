@@ -54,7 +54,9 @@ public final class DefaultUserRepository: UserRepository {
                     },
             ])
         }
-        return fetchRemoteUsers(since: since, perPage: perPage).asObservable()
+        return fetchRemoteUsers(since: since, perPage: perPage)
+            .asObservable()
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
     }
 
     public func fetchUserDetail(username: String) -> Single<UserDetail> {
@@ -62,6 +64,7 @@ public final class DefaultUserRepository: UserRepository {
             .networkClient
             .request(.userDetail(username: username))
             .map(dependencies.mapper.map)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
     }
 
     private func fetchRemoteUsers(since: Int, perPage: Int) -> Single<[User]> {
