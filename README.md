@@ -66,6 +66,7 @@ This project implements a modular clean architecture combined with Clean Archite
 - User List
 - User Detail
 - ✅ Feature-specific tests
+- ✅ Memory leaks tests
 
 ![IMG_2969](https://github.com/user-attachments/assets/1f1dfda8-2a95-465b-9ece-a6d6ef5084c4)
 ![IMG_2970](https://github.com/user-attachments/assets/19b466df-01d8-43b1-9773-b077ae4f3a69)
